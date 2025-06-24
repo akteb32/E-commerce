@@ -51,4 +51,16 @@ class User extends Authenticatable implements LaratrustUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function shopping_carts()
+    {
+        return $this->hasMany(shopping_cart::class);
+    }
+    public function orders()
+    {
+        return $this->hasMany(order::class);
+    }
+
+
+
 }
