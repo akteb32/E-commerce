@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->decimal('price', 10, 2)->comment('Item price at time of order');
             $table->decimal('total', 10, 2)->comment('Total price = quantity * price');
 
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreignId('order_id')->constrained()->onDelete('cascade')->index();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade')->index();
 
             $table->timestamps();
         });

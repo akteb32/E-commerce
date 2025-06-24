@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name',255)->comment('Product name');
-            $table->string('slug',255)->unique()->comment('URL-friendly product name');
+            $table->string('slug',255)->unique()->comment('URL-friendly product name')->index();
             $table->longText('description')->nullable()->comment('Product description');
             $table->text('short_description')->nullable()->comment('Brief product description');
-            $table->string('sku',255)->unique()->comment('Stock Keeping Unit');
+            $table->string('sku',255)->unique()->comment('Stock Keeping Unit')->index();
             $table->decimal('price',10,2)->comment('Product regular price');
             $table->decimal('sale_price',10,2)->nullable()->comment('Product discounted price');
             $table->decimal('cost_price',10,2)->nullable()->comment('Product cost price');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->integer('min_quantity')->default(1)->comment('Minimum order quantity');
             $table->decimal('weight',8,2)->nullable()->comment('Product weight');
             $table->string('dimensions',255)->nullable()->comment('Product dimensions');
-            $table->boolean('is_active')->default(true)->comment('Product status');
-            $table->boolean('is_featured')->default(false)->comment('Featured product flag');
+            $table->boolean('is_active')->default(true)->comment('Product status')->index();
+            $table->boolean('is_featured')->default(false)->comment('Featured product flag')->index();
             $table->boolean('manage_stock')->default(true)->comment('Stock management flag');
             $table->enum('stock_status',['in_stock','out_of_stock','on_backorder'])->default('in_stock')->comment('Stock status');
             $table->string('image',255)->nullable()->comment('Main product image');
@@ -36,8 +36,8 @@ return new class extends Migration
             $table->decimal('rating_average',2,1)->default(0.0)->comment('Average rating');
             $table->integer('rating_count')->default(0)->comment('Total ratings');
 
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade')->index();
+            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade')->index();
 
 
             $table->timestamps();

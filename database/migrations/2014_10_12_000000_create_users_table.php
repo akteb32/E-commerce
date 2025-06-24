@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('postal_code',20)->nullable()->comment('Users postal code');
             $table->string('country',20)->nullable()->comment('Users country');
             $table->string('avatar',255)->nullable()->comment('Profile picture path');
-            $table->boolean('is_active')->default(true)->comment('Account status');
-            $table->string('email')->unique();
+            $table->boolean('is_active')->default(true)->comment('Account status')->index();
+            $table->string('email')->unique()->index();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

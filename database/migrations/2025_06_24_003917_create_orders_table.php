@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number')->unique()->comment('Order number');
-            $table->enum('status',['pending','processing','shipped','delivered','cancelled','refunded'])->default('pending')->comment('Order status');
+            $table->string('order_number')->unique()->comment('Order number')->index();
+            $table->enum('status',['pending','processing','shipped','delivered','cancelled','refunded'])->default('pending')->comment('Order status')->index();
             $table->decimal('total_amount',10,2)->comment('Total order amount');
             $table->decimal('tax_amount',10,2)->default(0.00)->comment('Tax amount');
             $table->decimal('shipping_amount',10,2)->default(0.00)->comment('Shipping cost');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamp('shipped_at')->nullable()->comment('Shipping timestamp');
             $table->timestamp('delivered_at')->nullable()->comment('Delivery timestamp');
 
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index();
             $table->timestamps();
         });
     }

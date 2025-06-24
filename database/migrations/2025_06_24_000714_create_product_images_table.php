@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('image_path',255)->comment('Image file path');
             $table->string('alt_text',255)->nullable()->comment('Image alt text');
-            $table->boolean('is_primary')->default(false)->comment('Primary image flag');
-            $table->integer('sort_order')->default(0)->comment('Display order');
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->boolean('is_primary')->default(false)->comment('Primary image flag')->index();
+            $table->integer('sort_order')->default(0)->comment('Display order')->index();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade')->index();
 
 
             $table->timestamps();
