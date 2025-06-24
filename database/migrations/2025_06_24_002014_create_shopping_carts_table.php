@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity')->check('quantity >= 1')->comment('Item quantity');
+            $table->unsignedInteger('quantity')->check('quantity >= 1')->comment('Item quantity');
             $table->decimal('price',10,2)->comment('Item price at time of adding');
             $table->decimal('total',10,2)->comment('Total price (quantity * price)');
 

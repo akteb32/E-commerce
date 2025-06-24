@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('product_name', 255)->comment('Product name at time of order');
             $table->string('product_sku', 100)->comment('Product SKU at time of order');
-            $table->integer('quantity')->comment('Item quantity');
+            $table->unsignedInteger('quantity')->comment('Item quantity');
             $table->decimal('price', 10, 2)->comment('Item price at time of order');
             $table->decimal('total', 10, 2)->comment('Total price = quantity * price');
 
