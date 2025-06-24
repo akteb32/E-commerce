@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamp('shipped_at')->nullable()->comment('Shipping timestamp');
             $table->timestamp('delivered_at')->nullable()->comment('Delivery timestamp');
 
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index()->name('fk_orders_user_id');
             $table->timestamps();
         });
     }

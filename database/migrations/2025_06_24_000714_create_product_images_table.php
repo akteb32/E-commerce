@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('alt_text',255)->nullable()->comment('Image alt text');
             $table->boolean('is_primary')->default(false)->comment('Primary image flag')->index();
             $table->integer('sort_order')->default(0)->comment('Display order')->index();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade')->index();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade')->index()->name('fk_product_images_product_id');
 
 
             $table->timestamps();

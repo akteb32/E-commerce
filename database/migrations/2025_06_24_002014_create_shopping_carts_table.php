@@ -18,8 +18,8 @@ return new class extends Migration
             $table->decimal('total',10,2)->comment('Total price (quantity * price)');
 
 
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade')->index();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index()->name('fk_shopping_carts_user_id');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade')->index()->name('fk_shopping_carts_product_id');
             
 
             $table->timestamps();

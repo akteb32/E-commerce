@@ -36,8 +36,8 @@ return new class extends Migration
             $table->decimal('rating_average',2,1)->default(0.0)->comment('Average rating');
             $table->integer('rating_count')->default(0)->comment('Total ratings');
 
-            $table->foreignId('category_id')->constrained()->onDelete('cascade')->index();
-            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade')->index();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->index()->name('fk_products_category_id');
+            $table->foreignId('subcategory_id')->constrained('subcategories')->onDelete('cascade')->index()->name('fk_products_subcategory_id');
 
 
             $table->timestamps();

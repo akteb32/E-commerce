@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('country',100)->comment('Country');
             $table->string('phone',20)->comment('Phone number')->nullable();
 
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->foreignId('order_id')->constrained()->onDelete('cascade')->name('fk_order_items_order_id');
             $table->timestamps();
         });
     }
