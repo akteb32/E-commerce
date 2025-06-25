@@ -26,6 +26,8 @@
 </x-guest-layout> --}}
 
 
+<x-guest-layout>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,7 +86,7 @@
 
 
 
-
+</x-guest-layout>
 
 
 

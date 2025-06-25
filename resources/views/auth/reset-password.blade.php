@@ -39,6 +39,9 @@
 </x-guest-layout> --}}
 
 
+
+<x-guest-layout>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +73,7 @@
                                 <div class="card-body">
                                     <div class="p-5">
                                         <div class="text-start">
-                                            <img src="assets/images/logo-img.png" width="180" alt="">
+                                            <img src="" width="180" alt="">
                                         </div>
 
                                         <form method="POST" action="{{ route('password.store') }}">
@@ -113,3 +116,6 @@
 </body>
 
 </html>
+
+
+</x-guest-layout>
