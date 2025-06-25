@@ -27,21 +27,21 @@
 
 <body class="g-sidenav-show  bg-gray-100">
 
-    @include('layout.backend.body.sidebar')
+     @include('layout.backend.body.sidebar')
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
         <!-- Navbar -->
-        @include('layout.backend.body.navbar')
+                   @include('layout.backend.body.navbar')
         <!-- End Navbar -->
 
         <div class="container-fluid py-2">
 
 
-            @yield('backend_main')
+                @yield('backend_main')
 
 
-            @include('layout.backend.body.footer')
+                @include('layout.backend.body.footer')
         </div>
     </main>
 
