@@ -59,16 +59,16 @@
 	<!--favicon-->
 	<link rel="icon" href="{{asset('')}}" type="image/png" />
 	<!--plugins-->
-	<link href="{{asset('public/assets/backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
-	<link href="{{asset('public/assets/backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
-	<link href="{{asset('public/assets/backend/assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('assets/backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
+	<link href="{{asset('assets/backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
+	<link href="{{asset('assets/backend/assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet" />
 	<!-- loader-->
-	<link href="{{asset('public/assets/backend/assets/css/pace.min.css')}}" rel="stylesheet" />
-	<script src="{{asset('public/assets/backend/assets/js/pace.min.js')}}"></script>
+	<link href="{{asset('assets/backend/assets/css/pace.min.css')}}" rel="stylesheet" />
+	<script src="{{asset('assets/backend/assets/js/pace.min.js')}}"></script>
 	<!-- Bootstrap CSS -->
-	<link href="{{asset('public/assets/backend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
-	<link href="{{asset('public/assets/backend/assets/css/app.css')}}" rel="stylesheet">
-	<link href="{{asset('public/assets/backend/assets/css/icons.css')}}" rel="stylesheet">
+	<link href="{{asset('assets/backend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{asset('assets/backend/assets/css/app.css')}}" rel="stylesheet">
+	<link href="{{asset('assets/backend/assets/css/icons.css')}}" rel="stylesheet">
 	<title>login</title>
 </head>
 

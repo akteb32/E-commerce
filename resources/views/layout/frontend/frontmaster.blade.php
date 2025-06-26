@@ -44,7 +44,6 @@
 
        @yield('frontend_main')
 
-       
     </main>
 
 
