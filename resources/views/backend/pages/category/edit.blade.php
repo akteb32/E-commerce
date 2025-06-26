@@ -1,13 +1,13 @@
 @extends('layout.backend.backmaster')
 
 
-    @section('backend_main')
+@section('backend_main')
 
 
-    
 
 
-  <form method="POST" action="{{route('category.update',$category->id)}}">
+
+    <form method="POST" action="{{route('category.update', $category->id)}}">
         @CSRF
         @method('PUT')
         <div class="form-group">
@@ -20,19 +20,33 @@
         </div>
         <div class="form-group">
             <label>Category description</label>
-            <input type="text" class="form-control" placeholder="Enter description" name="category_description" value="{{$category->description}}">
+            <input type="text" class="form-control" placeholder="Enter description" name="category_description"  value="{{$category->description}}">
         </div>
         <div class="form-group col-xl-9 mx-auto">
-            <label>Category image</label>			
-						<div class="card">
-							<div class="card-body">
-								<form>
-									<input type="file"  class="form-control" id="image-uploadify" placeholder="uploade image " name="category_image" value="{{$category->image}}" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
-								</form>
-							</div>
-						</div>
-					</div>
-    
+            <label>Category image</label>
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <input type="file" class="form-control" id="image-uploadify" placeholder="uploade image "
+                            name="category_image" value="{{$category->image}}"
+                            accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Category is_active</label>
+            <input type="text" class="form-control" placeholder="is_active ?" name="category_is_active"value="{{$category->is_active}}">
+        </div>
+        <div class="form-group">
+            <label>Category sort_order</label>
+            <input type="select" class="form-control" placeholder="sort_order" name="category_sort_order"value="{{$category->sort_order}}">
+        </div>
+
+
+
+
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 
@@ -57,4 +71,4 @@
 
 
 
-    @endsection
+@endsection
