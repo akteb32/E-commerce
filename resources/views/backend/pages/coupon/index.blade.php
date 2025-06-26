@@ -155,11 +155,11 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{$coupon->updated_at}}</p>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="/category-edit/{{$coupon->id}}"
+                                                <a href="/coupon-edit/{{$coupon->id}}"
                                                     class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <form method="POST" action="/category-delete/{{$coupon->id}}">
+                                                <form method="POST" action="/coupon-delete/{{$coupon->id}}">
                                                     @CSRF
                                                     @method('DELETE')
                                                     <button type="submit"

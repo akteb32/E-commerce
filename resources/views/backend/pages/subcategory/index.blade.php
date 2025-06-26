@@ -133,11 +133,11 @@
         <p class="text-xs font-weight-bold mb-0">{{$subcategory->updated_at}}</p>
         </td>
         <td class="align-middle text-center">
-        <a href="/category-edit/{{$subcategory->id}}"
+        <a href="/subcategory-edit/{{$subcategory->id}}"
           class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
         </td>
         <td class="align-middle text-center">
-        <form method="POST" action="/category-delete/{{$subcategory->id}}">
+        <form method="POST" action="/subcategory-delete/{{$subcategory->id}}">
           @CSRF
           @method('DELETE')
           <button type="submit"
