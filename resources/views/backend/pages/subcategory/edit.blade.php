@@ -33,6 +33,18 @@
 						</div>
 					</div>
     
+
+        <div class="form-group">
+            <label>Subcategory is_active</label>
+            <input type="text" class="form-control" placeholder="is_active ?" name="subcategory_is_active" value="{{$subcategory->is_active}}">
+        </div>
+        <div class="form-group">
+            <label>Subcategory sort_order</label>
+            <input type="select" class="form-control" placeholder="sort_order" name="subcategory_sort_order" value="{{$subcategory->sort_order}}">
+        </div>
+
+
+
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 

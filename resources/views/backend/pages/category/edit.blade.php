@@ -37,11 +37,11 @@
 
         <div class="form-group">
             <label>Category is_active</label>
-            <input type="text" class="form-control" placeholder="is_active ?" name="category_is_active"value="{{$category->is_active}}">
+            <input type="text" class="form-control" placeholder="is_active ?" name="category_is_active" value="{{$category->is_active}}">
         </div>
         <div class="form-group">
             <label>Category sort_order</label>
-            <input type="select" class="form-control" placeholder="sort_order" name="category_sort_order"value="{{$category->sort_order}}">
+            <input type="select" class="form-control" placeholder="sort_order" name="category_sort_order" value="{{$category->sort_order}}">
         </div>
 
 

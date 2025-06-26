@@ -24,8 +24,7 @@
 
                 <div class="card-body">
                     <label>Subcategory description</label>
-                    <input class="form-control" type="text" placeholder="Subcategory description" name="subcategory_description"
-                        required>
+                    <input class="form-control" type="text" placeholder="Subcategory description" name="subcategory_description"  required>
                 </div>
 
 
@@ -39,6 +38,15 @@
                 </div>
 
 
+                <div class="form-group">
+                     <label>Subcategory is_active</label>
+                     <input type="text" class="form-control" placeholder="is_active ?" name="subcategory_is_active" required>
+                  </div>
+      
+                 <div class="form-group">
+                      <label>Subcategory sort_order</label>
+                     <input type="textbox" class="form-control" placeholder="sort_order" name="subcategory_sort_order" required>
+                </div>
 
 
             </div>

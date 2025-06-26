@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('meta_description')->nullable()->comment('SEO meta description');
             
             $table->foreignId('category_id')->constrained()->onDelete('cascade')->index();
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
