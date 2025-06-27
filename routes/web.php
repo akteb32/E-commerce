@@ -21,14 +21,14 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('layout.frontend.frontmaster');
+    return view('frontend.layouts.frontmaster');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -36,8 +36,8 @@ Route::middleware('auth')->group(function () {
 
 // -- backend Route -- //
 
-// -- dashboard Route -- //
-Route::get('/admin', action: [dashboardcontroller::class,'index']);
+// // -- dashboard Route -- //
+// Route::get('/admin', action: [dashboardcontroller::class,'index']);
        
 // -- Category Route -- //
 Route::get('/category', action: [CategoryController::class,'index'])->name('category.index');

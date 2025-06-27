@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use PhpParser\Builder\Use_;
 
@@ -22,8 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-
-
+        
         $roles =[
          [
             'name' => 'admin',
@@ -40,8 +40,12 @@ class DatabaseSeeder extends Seeder
         Role::firstOrCreate($role);
         }
 
+        
+        /**
+         * @var \App\Models\User $user
+         */
 
-         $user = Use_::create([
+         $user = User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
@@ -49,6 +53,7 @@ class DatabaseSeeder extends Seeder
 
         $user ->addRole('admin');
 
+        
 
     }
 }
