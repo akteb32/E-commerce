@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('frontend.layouts.frontmaster');
+    return view('frontend.auth.forgot-password');
 });
 
 Route::get('/dashboard', function () {
@@ -40,12 +40,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 // Route::get('/admin', action: [dashboardcontroller::class,'index']);
        
 // -- Category Route -- //
-Route::get('/category', action: [CategoryController::class,'index'])->name('category.index');
-Route::get('/category-create', [CategoryController::class,'create']);
-Route::post('/category-store', [CategoryController::class,'store'])->name('category.store');
-Route::get('/category-edit/{category}', [CategoryController::class,'edit']);
-Route::put('/category-update/{category}', [CategoryController::class,'update'])->name('category.update');
-Route::delete('/category-delete/{category}', [CategoryController::class,'destroy'])->name('category.delete');// -- Category Route --
+// Route::get('/category', action: [CategoryController::class,'index'])->name('category.index');
+// Route::get('/category-create', [CategoryController::class,'create']);
+// Route::post('/category-store', [CategoryController::class,'store'])->name('category.store');
+// Route::get('/category-edit/{category}', [CategoryController::class,'edit']);
+// Route::put('/category-update/{category}', [CategoryController::class,'update'])->name('category.update');
+// Route::delete('/category-delete/{category}', [CategoryController::class,'destroy'])->name('category.delete');// -- Category Route --
 
  
 
