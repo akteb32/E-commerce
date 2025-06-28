@@ -1,6 +1,6 @@
-@extends('layout.frontend.frontmaster')
+@extends('frontend.layouts.frontmaster')
 
-@section('frontend_main')
+@section('main')
 
 
 

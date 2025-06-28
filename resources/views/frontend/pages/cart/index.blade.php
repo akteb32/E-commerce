@@ -1,10 +1,10 @@
-@extends('layout.frontend.frontmaster')
+@extends('frontend.layouts.frontmaster')
 
-@section('frontend_main')
+@section('main')
 
 
 
-      <main class="main">
+    
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
@@ -26,6 +26,11 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
+
+
+
+
+                    {{-- table Your Cart --}}
                     <div class="table-responsive shopping-summery">
                         <table class="table table-wishlist">
                             <thead>
@@ -47,7 +52,7 @@
                                         <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="">
                                         <label class="form-check-label" for="exampleCheckbox1"></label>
                                     </td>
-                                    <td class="image product-thumbnail pt-40"><img src="assets/imgs/shop/product-1-1.jpg" alt="#"></td>
+                                    <td class="image product-thumbnail pt-40"><img src="{{asset('frontend/assets/imgs/shop/product-1-1.jpg')}}" alt="#"></td>
                                     <td class="product-des product-name">
                                         <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">Field Roast Chao Cheese Creamy Original</a></h6>
                                         <div class="product-rate-cover">
@@ -80,7 +85,7 @@
                                         <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox2" value="">
                                         <label class="form-check-label" for="exampleCheckbox2"></label>
                                     </td>
-                                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-2-1.jpg" alt="#"></td>
+                                    <td class="image product-thumbnail"><img src="{{asset('frontend/assets/imgs/shop/product-2-1.jpg')}}" alt="#"></td>
                                     <td class="product-des product-name">
                                         <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">Blue Diamond Almonds Lightly Salted</a></h6>
                                         <div class="product-rate-cover">
@@ -113,7 +118,7 @@
                                         <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="">
                                         <label class="form-check-label" for="exampleCheckbox3"></label>
                                     </td>
-                                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-3-1.jpg" alt="#"></td>
+                                    <td class="image product-thumbnail"><img src="{{asset('frontend/assets/imgs/shop/product-3-1.jpg')}}" alt="#"></td>
                                     <td class="product-des product-name">
                                         <h6 class="mb-5"><a class="product-name mb-10 text-heading" href="shop-product-right.html">Fresh Organic Mustard Leaves Bell Pepper</a></h6>
                                         <div class="product-rate-cover">
@@ -144,10 +149,12 @@
                             </tbody>
                         </table>
                     </div>
-                   
+                
 
+
+                    
                     <div class="row mt-50">
-
+                            {{-- Apply Coupon --}}
                             <div class="col-lg-5">
                             <div class="p-40">
                                 <h4 class="mb-10">Apply Coupon</h4>
@@ -161,7 +168,7 @@
                             </div>
                         </div>
 
-
+                        {{-- Subtotal --}}
                         <div class="col-lg-7">
                              <div class="divider-2 mb-30"></div>
                      
@@ -221,9 +228,6 @@
                  
             </div>
         </div>
-    </main>
-
-
-
+    
 
 @endsection

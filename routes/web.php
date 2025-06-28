@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('frontend.auth.forgot-password');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -56,3 +54,45 @@ require __DIR__.'/auth.php';
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// Test Route
+
+
+Route::get('/home-page', function () {
+    return view('frontend.home');
+});
+Route::get('/checkout', function () {
+    return view('frontend.pages.cart.checkout');
+});
+Route::get('/cart', function () {
+    return view('frontend.pages.cart.index');
+});
+Route::get('/show-order', function () {
+    return view('frontend.pages.order.show');
+});
+Route::get('/index-order', function () {
+    return view('frontend.pages.order.index');
+});
+
+Route::get('/single-product', function () {
+    return view('frontend.pages.product.single-product');
+});
+Route::get('/edit-profile', function () {
+    return view('frontend.pages.profile.edit');
+});
+Route::get('/address', function () {
+    return view('frontend.pages.address.index');
+});
+Route::get('/editaddress', function () {
+    return view('frontend.pages.address.edit');
+});
