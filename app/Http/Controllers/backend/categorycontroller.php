@@ -13,6 +13,7 @@ public function index()
 {
     $categories = category::all();
     return view('backend.pages.category.index', compact('categories'));
+    
 }
 
    public function create()
@@ -23,12 +24,15 @@ public function index()
 
     public function store(Request $request)
     {
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('public/images');
+        }
 
-
-        Category::create([
-            'name' => $request->category_name
+       $category = Category::create([
+            'name' => $request->category_name,
+            'image'=> $path,
         ]);
-
+       
         return redirect()->route('category.index');
     }
 

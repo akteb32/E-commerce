@@ -20,19 +20,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+require __DIR__.'/auth.php';
+
+
+// -- backend Route -- //
+Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-// -- backend Route -- //
+    // -- user Route -- //
+    Route::prefix('user')->group(function () {
+
+    });
+
+    // -- Category Route -- //
+    Route::prefix('category')->group(function () {
+
+    });
+
+
 
 // // -- dashboard Route -- //
 // Route::get('/admin', action: [dashboardcontroller::class,'index']);
@@ -46,11 +58,21 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 // Route::delete('/category-delete/{category}', [CategoryController::class,'destroy'])->name('category.delete');// -- Category Route --
 
  
+});
+
+
+
+
+
+// -- frontend Route -- //
+Route::prefix('user')->middleware(['auth','role:user'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
 });
 
-require __DIR__.'/auth.php';
 
 
 
@@ -95,4 +117,7 @@ Route::get('/address', function () {
 });
 Route::get('/editaddress', function () {
     return view('frontend.pages.address.edit');
+});
+Route::get('/editprofile', function () {
+    return view('frontend.pages.profile.edit');
 });
