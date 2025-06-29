@@ -150,6 +150,6 @@ Route::get('/authmaster', function () {
 });
 
 
-Route::get('/', function () {
-    return view('backend.auth.login-backend');
+Route::get('/register-backend', function () {
+    return view('backend.auth.register-backend');
 });
