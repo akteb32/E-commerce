@@ -3,6 +3,7 @@
 use App\Http\Controllers\categorycontroller;
 use App\Http\Controllers\dashboardcontroller;
 use App\Http\Controllers\ProfileController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,8 +88,12 @@ Route::prefix('user')->middleware(['auth','role:user'])->group(function () {
 
 
 
-// Test Route
 
+
+
+
+
+// Test user pages
 
 Route::get('/home-page', function () {
     return view('frontend.home');
@@ -105,7 +110,6 @@ Route::get('/show-order', function () {
 Route::get('/index-order', function () {
     return view('frontend.pages.order.index');
 });
-
 Route::get('/single-product', function () {
     return view('frontend.pages.product.single-product');
 });
@@ -121,3 +125,16 @@ Route::get('/editaddress', function () {
 Route::get('/editprofile', function () {
     return view('frontend.pages.profile.edit');
 });
+
+
+
+
+// Test admin pages
+
+
+Route::get('/backmaster', function () {
+    return view('backend.layouts.backmaster');
+});
+Route::get('/dashboard', function () {
+    return view('backend.dashboard');
+})->name('dashbord.admin');
