@@ -153,3 +153,6 @@ Route::get('/authmaster', function () {
 Route::get('/register-backend', function () {
     return view('backend.auth.register-backend');
 });
+Route::get('/reset-password', function () {
+    return view('backend.auth.reset-password-backend');
+});
