@@ -93,6 +93,22 @@ Route::prefix('user')->middleware(['auth','role:user'])->group(function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Test user pages
 
 Route::get('/home-page', function () {
@@ -125,6 +141,9 @@ Route::get('/editaddress', function () {
 Route::get('/editprofile', function () {
     return view('frontend.pages.profile.edit');
 });
+Route::get('/confirm-password-frontend', function () {
+    return view('frontend.auth.confirm-password-frontend');
+});
 
 
 
@@ -135,21 +154,15 @@ Route::get('/editprofile', function () {
 Route::get('/backmaster', function () {
     return view('backend.layouts.backmaster');
 });
-
-
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashbord.admin');
-
-
 Route::get('/authlogin', function () {
     return view('backend.auth.login-backend');
 });
 Route::get('/authmaster', function () {
     return view('backend.auth.layouts.authmaster');
 });
-
-
 Route::get('/register-backend', function () {
     return view('backend.auth.register-backend');
 });
@@ -161,4 +174,7 @@ Route::get('/forgot-password', function () {
 });
 Route::get('/verify-email', function () {
     return view('backend.auth.verify-email-backend');
+});
+Route::get('/confirm-password', function () {
+    return view('backend.auth.confirm-password-backend');
 });
