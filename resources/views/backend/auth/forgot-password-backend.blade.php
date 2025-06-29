@@ -35,7 +35,7 @@
 							{{-- button --}}
 							<button type="button" class="btn btn-primary btn-lg"> {{ __('Email Password Reset Link') }}</button> 
 							
-							{{-- Link -Back to Login  --}}
+							{{-- Link - Back to Login  --}}
 							<a href="{{route('login')}}" class="btn btn-light btn-lg"><i class='bx bx-arrow-back me-1'></i>Back to Login</a>
 						</div>
  					</form>

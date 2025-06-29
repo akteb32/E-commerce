@@ -159,3 +159,6 @@ Route::get('/reset-password', function () {
 Route::get('/forgot-password', function () {
     return view('backend.auth.forgot-password-backend');
 });
+Route::get('/verify-email', function () {
+    return view('backend.auth.verify-email-backend');
+});
