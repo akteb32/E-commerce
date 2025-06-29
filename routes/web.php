@@ -132,6 +132,12 @@ Route::get('/editprofile', function () {
 Route::get('/confirm-password-frontend-show', function () {
     return view('frontend.auth.confirm-password-frontend');
 });
+Route::get('/login-frontend', function () {
+    return view('frontend.auth.login-frontend');
+});
+Route::get('/register-frontend', function () {
+    return view('frontend.auth.register-frontend');
+});
 
 // Test admin pages
 Route::get('/backmaster', function () {
@@ -162,5 +168,8 @@ Route::get('/confirmpass', function () {
     return view('backend.auth.confirm-password-backend');
 });
 Route::get('/password-conf', function () {
-    return view('auth\confirm-password');
+    return view('auth.confirm-password');
+});
+Route::get('/register-backend', function () {
+    return view('backend.auth.register-backend');
 });
