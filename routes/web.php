@@ -135,6 +135,14 @@ Route::get('/editprofile', function () {
 Route::get('/backmaster', function () {
     return view('backend.layouts.backmaster');
 });
+
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashbord.admin');
+
+
+Route::get('/authlogin', function () {
+    return view('backend.auth.auth-login');
+})
+;

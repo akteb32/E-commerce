@@ -68,7 +68,7 @@
                                         </div>
 
 
-
+                                        {{-- login button  --}}
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-heading btn-block hover-up"
                                                     name="login">{{ __('Log in') }}</button>
