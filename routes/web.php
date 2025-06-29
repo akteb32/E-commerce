@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend\home');
 });
 
 Route::get('/dashboard', function () {
@@ -33,31 +33,20 @@ Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+// // -- dashboard Route -- //
 
     // -- user Route -- //
-    Route::prefix('user')->group(function () {
+Route::prefix('user')->group(function () {
 
     });
 
     // -- Category Route -- //
-    Route::prefix('category')->group(function () {
+Route::prefix('category')->group(function () {
+    
+        Route::get('/category', action: [CategoryController::class,'index'])->name('category.index');
+        Route::get('/category-create', [CategoryController::class,'create']);
 
     });
-
-
-
-// // -- dashboard Route -- //
-// Route::get('/admin', action: [dashboardcontroller::class,'index']);
-       
-// -- Category Route -- //
-// Route::get('/category', action: [CategoryController::class,'index'])->name('category.index');
-// Route::get('/category-create', [CategoryController::class,'create']);
-// Route::post('/category-store', [CategoryController::class,'store'])->name('category.store');
-// Route::get('/category-edit/{category}', [CategoryController::class,'edit']);
-// Route::put('/category-update/{category}', [CategoryController::class,'update'])->name('category.update');
-// Route::delete('/category-delete/{category}', [CategoryController::class,'destroy'])->name('category.delete');// -- Category Route --
-
  
 });
 
@@ -110,7 +99,6 @@ Route::prefix('user')->middleware(['auth','role:user'])->group(function () {
 
 
 // Test user pages
-
 Route::get('/home-page', function () {
     return view('frontend.home');
 });
@@ -141,16 +129,11 @@ Route::get('/editaddress', function () {
 Route::get('/editprofile', function () {
     return view('frontend.pages.profile.edit');
 });
-Route::get('/confirm-password-frontend', function () {
+Route::get('/confirm-password-frontend-show', function () {
     return view('frontend.auth.confirm-password-frontend');
 });
 
-
-
-
 // Test admin pages
-
-
 Route::get('/backmaster', function () {
     return view('backend.layouts.backmaster');
 });
@@ -175,6 +158,9 @@ Route::get('/forgot-password', function () {
 Route::get('/verify-email', function () {
     return view('backend.auth.verify-email-backend');
 });
-Route::get('/confirm-password', function () {
+Route::get('/confirmpass', function () {
     return view('backend.auth.confirm-password-backend');
+});
+Route::get('/password-conf', function () {
+    return view('auth\confirm-password');
 });

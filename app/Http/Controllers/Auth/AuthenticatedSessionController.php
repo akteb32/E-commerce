@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,7 +18,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('frontend.auth.login');
+         if (Auth::check() && Auth::user()->hasRole('user'))
+          {
+            return view('frontend.auth.login-frontend');
+          } 
+        else
+          {
+            return view('backend.auth.login-backend');
+          }
+        
     }
 
     /**
