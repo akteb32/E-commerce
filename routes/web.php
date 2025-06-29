@@ -156,3 +156,6 @@ Route::get('/register-backend', function () {
 Route::get('/reset-password', function () {
     return view('backend.auth.reset-password-backend');
 });
+Route::get('/forgot-password', function () {
+    return view('backend.auth.forgot-password-backend');
+});
