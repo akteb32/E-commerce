@@ -143,6 +143,13 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/authlogin', function () {
-    return view('backend.auth.auth-login');
-})
-;
+    return view('backend.auth.login-backend');
+});
+Route::get('/authmaster', function () {
+    return view('backend.auth.layouts.authmaster');
+});
+
+
+Route::get('/', function () {
+    return view('backend.auth.login-backend');
+});
