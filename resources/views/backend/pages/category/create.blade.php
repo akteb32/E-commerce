@@ -73,12 +73,12 @@
                                         <div class="form-check form-check-inline">
                                             <label>Active</label>
                                             <input type="radio" class="form-check-input" id="active"
-                                                placeholder="is_active ?" value="1" name="category_is_active">
+                                                value="1" name="category_is_active">
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <label>inActive</label>
                                             <input type="radio" class="form-check-input" id="inactive"
-                                                placeholder="is_active ?" value="0" name="category_is_active">
+                                                 value="0" name="category_is_active">
                                         </div>
                                     </div>
 
