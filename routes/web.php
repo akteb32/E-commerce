@@ -144,7 +144,7 @@ Route::get('/backmaster', function () {
     return view('backend.layouts.backmaster');
 });
 Route::get('/dashboard', function () {
-    return view('backend.dashboard');
+    return view('backend.dashboard-backend');
 })->name('dashbord.admin');
 Route::get('/authlogin', function () {
     return view('backend.auth.login-backend');
@@ -172,4 +172,19 @@ Route::get('/password-conf', function () {
 });
 Route::get('/register-backend', function () {
     return view('backend.auth.register-backend');
+});
+Route::get('/index-prev-category', function () {
+    return view('backend.pages.category.index-prev');
+});
+Route::get('/index-old-category', function () {
+    return view('backend.pages.category.index-old');
+});
+Route::get('/index-category', function () {
+    return view('backend.pages.category.index');
+});
+Route::get('/create-category', function () {
+    return view('backend.pages.category.create');
+});
+Route::get('/edit-category-cat', function () {
+    return view('backend.pages.category.edit');
 });

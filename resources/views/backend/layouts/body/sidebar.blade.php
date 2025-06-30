@@ -1,7 +1,7 @@
-	<div class="sidebar-wrapper" data-simplebar="true">
+	<div class="sidebar-wrapper sidebar-menu" data-simplebar="true">
 			<div class="sidebar-header">
 				<div>
-					<img src="https://cdn-icons-png.freepik.com/512/13653/13653715.png" class="logo-icon" alt="logo icon">
+					<img src="backend\assets\images\logowx.png" class="logo-icon" alt="logo icon">
 				</div>
 				<div>
 					<h5 class="logo-text">eCommerce</h5>
@@ -29,8 +29,7 @@
 					<ul>
 						<li> <a href="{{route('dashbord.admin')}}"><i class="bx bx-right-arrow-alt"></i>Default</a>
 						</li>
-						<li> <a href="https://botnation.ai/site/wp-content/uploads/2022/12/ecommerce-1400x800.jpg"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
-						</li>
+						
 						<li> <a href="https://skyje.com/wp-content/uploads/2018/08/analytics-solutions.jpg"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
 						</li>
 						<li> <a href="https://www.antraajaal.in/images/resource/digital-marketing-.jpeg"><i class="bx bx-right-arrow-alt"></i>Digital Marketing</a>
@@ -63,6 +62,9 @@
 				<li class="menu-label">UI Elements</li>
 
 
+
+				{{-- Components --}}
+				
 
 
 				{{-- Widgets --}}
