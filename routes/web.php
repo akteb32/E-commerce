@@ -23,8 +23,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('backend/dashboard-backend');
 })->name('dashbord.admin');
-
-
 // ->middleware(['auth', 'verified'])->name('dashboard');
 
 // require __DIR__.'/auth.php';
@@ -73,7 +71,8 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/category', [CategoryController::class,'index'])->name('category.index');
-
+Route::get('/category_create', [CategoryController::class,'create'])->name('category.create');
+Route::post('/category_store', [CategoryController::class,'store'])->name('category.store');
 
 
 
