@@ -61,9 +61,14 @@
 									<th>postal_code</th>
 									<th>country</th>
 									<th>phone</th>
+
+									{{-- foreignId --}}
 									<th>order_id</th>
+
+									{{-- timestamps --}}
 									<th>Create_at</th>
 									<th>Update_at</th>
+
 									<th colspan="2">Action</th>
 								</tr>
 							</thead>
@@ -84,16 +89,24 @@
 									<td>{{$shipping_address->postal_code}}</td>
 									<td>{{$shipping_address->country}}</td>
 									<td>{{$shipping_address->phone}}</td>
+
+									{{-- foreignId --}}
 									<td>{{$shipping_address->order_id}}</td>
-								
+									
+									{{-- timestamps --}}
 									<td>{{$shipping_address->created_at}}</td>
 									<td>{{$shipping_address->updated_at}}</td>
 
 
+
+
+									
 									{{-- edit button --}}
 									<td>
 										<a href="/shipping_address-edit/{{$shipping_address->id}}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 									</td>
+
+
 
 
 									{{-- delete button --}}

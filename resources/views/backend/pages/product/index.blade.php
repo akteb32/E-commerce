@@ -12,22 +12,22 @@
 
 
 				{{-- Table name --}}
-				<div class="breadcrumb-title pe-3">Categories</div>
+				<div class="breadcrumb-title pe-3">Products</div>
 				<div class="ps-3">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb mb-0 p-0">
 							<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 							</li>
-							<li class="breadcrumb-item active" aria-current="page">Category Table</li>
+							<li class="breadcrumb-item active" aria-current="page">Product Table</li>
 						</ol>
 					</nav>
 				</div>
 
 
 
-				{{-- Create new category --}}
+				{{-- Create new Product --}}
 				<div class="ms-auto">
-					<a href="#" class="btn btn-primary">Create Category</a>
+					<a href="#" class="btn btn-primary">Create Product</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
 							Category</a></button> --}}
 				</div>
@@ -73,6 +73,13 @@
 									<th>meta_description</th>
 									<th>rating_average</th>
 									<th>rating_count</th>
+									
+									{{-- foreignId --}}
+									<th>category_id</th>
+									<th>subcategory_id</th>
+
+									
+									{{-- timestamps --}}
 									<th>Create_at</th>
 									<th>Update_at</th>
 
@@ -108,13 +115,27 @@
 									<td>{{$product->meta_description}}</td>
 									<td>{{$product->rating_average}}</td>
 									<td>{{$product->rating_count}}</td>
+
+									{{-- foreignId --}}
+									<td>{{$product->category_id}}</td>
+									<td>{{$product->subcategory_id}}</td>
+
+									{{-- timestamps --}}
 									<td>{{$product->created_at}}</td>
 									<td>{{$product->updated_at}}</td>
 
+
+
+
+									
 									{{-- edit button --}}
 									<td>
 										<a href="/product-edit/{{$product->id}}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 									</td>
+
+
+									
+
 
 									{{-- delete button --}}
 									<td>

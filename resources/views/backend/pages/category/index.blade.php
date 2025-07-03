@@ -27,7 +27,7 @@
 
 				{{-- Create new category --}}
 				<div class="ms-auto">
-					<a href="#" class="btn btn-primary">Create Category</a>
+					<a href="{{route('category.create')}}" class="btn btn-primary">Create Category</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
 							Category</a></button> --}}
 				</div>
@@ -51,25 +51,18 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-
 									<th>Name</th>
-
 									<th>slug</th>
-
 									<th>description</th>
-
 									<th>image</th>
-
 									<th>is_active</th>
-
 									<th>sort_order</th>
-
 									<th>meta_title</th>
-
 									<th>meta_description</th>
 
-									<th>Create_at</th>
 
+									{{-- timestamps --}}
+									<th>Create_at</th>
 									<th>Update_at</th>
 
 									<th colspan="2">Action</th>
@@ -82,33 +75,30 @@
 								@foreach($categories as $category)
 								<tr>
 									<td>{{$category->id}}</td>
-
 									<td>{{$category->name}}</td>
-
 									<td>{{$category->slug}}</td>
-
 									<td>{{$category->description}}</td>
-
 									<td>{{$category->image}}</td>
-
 									<td>{{$category->is_active}}</td>
-
 									<td>{{$category->sort_order}}</td>
-
 									<td>{{$category->meta_title}}</td>
-
 									<td>{{$category->meta_description}}</td>
 
+									
+									{{-- timestamps --}}
 									<td>{{$category->created_at}}</td>
-
 									<td>{{$category->updated_at}}</td>
 
 
+
+
+									
 									{{-- edit button --}}
 									<td>
 										<a href="/category-edit/{{$category->id}}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 									</td>
 
+									
 
 									{{-- delete button --}}
 									<td>

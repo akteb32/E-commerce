@@ -12,22 +12,22 @@
 
 
 				{{-- Table name --}}
-				<div class="breadcrumb-title pe-3">Categories</div>
+				<div class="breadcrumb-title pe-3">Subcategories</div>
 				<div class="ps-3">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb mb-0 p-0">
 							<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 							</li>
-							<li class="breadcrumb-item active" aria-current="page">Category Table</li>
+							<li class="breadcrumb-item active" aria-current="page">Subcategory Table</li>
 						</ol>
 					</nav>
 				</div>
 
 
 
-				{{-- Create new category --}}
+				{{-- Create new subcategory --}}
 				<div class="ms-auto">
-					<a href="#" class="btn btn-primary">Create Category</a>
+					<a href="#" class="btn btn-primary">Create Subcategory</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
 							Category</a></button> --}}
 				</div>
@@ -51,25 +51,20 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-
 									<th>Name</th>
-
 									<th>slug</th>
-
 									<th>description</th>
-
 									<th>image</th>
-
 									<th>is_active</th>
-
 									<th>sort_order</th>
-
 									<th>meta_title</th>
-
 									<th>meta_description</th>
 
+									{{-- foreignId --}}
+									<th>category_id</th>
+									
+									{{-- timestamps --}}
 									<th>Create_at</th>
-
 									<th>Update_at</th>
 
 									<th colspan="2">Action</th>
@@ -82,26 +77,24 @@
 								@foreach($subcategories as $subcategory)
 								<tr>
 									<td>{{$subcategory->id}}</td>
-
 									<td>{{$subcategory->name}}</td>
-
 									<td>{{$subcategory->slug}}</td>
-
 									<td>{{$subcategory->description}}</td>
-
 									<td>{{$subcategory->image}}</td>
-
 									<td>{{$subcategory->is_active}}</td>
-
 									<td>{{$subcategory->sort_order}}</td>
-
 									<td>{{$subcategory->meta_title}}</td>
-
 									<td>{{$subcategory->meta_description}}</td>
 
-									<td>{{$subcategory->created_at}}</td>
+									{{-- foreignId --}}
+									<td>{{$subcategory->category_id}}</td>
 
+									{{-- timestamps --}}
+									<td>{{$subcategory->created_at}}</td>
 									<td>{{$subcategory->updated_at}}</td>
+
+
+
 
 
 									{{-- edit button --}}
@@ -109,6 +102,8 @@
 										<a href="/subcategory-edit/{{$subcategory->id}}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 									</td>
 
+
+									
 
 									{{-- delete button --}}
 									<td>

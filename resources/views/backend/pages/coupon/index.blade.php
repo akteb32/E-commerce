@@ -25,7 +25,7 @@
 
 
 
-				{{-- Create new category --}}
+				{{-- Create new Coupon --}}
 				<div class="ms-auto">
 					<a href="#" class="btn btn-primary">Create Coupon</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
@@ -60,7 +60,8 @@
 									<th>is_active</th>
 									<th>starts_at</th>
 									<th>expires_at</th>
-
+									
+									{{-- timestamps --}}
 									<th>Create_at</th>
 									<th>Update_at</th>
 
@@ -84,8 +85,12 @@
 										<td>{{$coupon->starts_at}}</td>
 										<td>{{$coupon->expires_at}}</td>
 
+										{{-- timestamps --}}
 										<td>{{$product->created_at}}</td>
 										<td>{{$product->updated_at}}</td>
+
+
+
 
 										{{-- edit button --}}
 										<td>
@@ -93,6 +98,9 @@
 												class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 										</td>
 
+
+
+										
 										{{-- delete button --}}
 										<td>
 											<form method="POST" action="/coupon-delete/{{$coupon->id}}">

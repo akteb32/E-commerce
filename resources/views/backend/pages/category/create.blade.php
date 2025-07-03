@@ -47,7 +47,7 @@
                                     {{-- sort_order --}}
                                     <div class="card-body">
                                         <label>Category sort order</label>
-                                        <input type="select" class="form-control" placeholder="sort_order"
+                                        <input type="number" class="form-control" placeholder="sort_order"
                                             name="category_sort_order">
                                     </div>
 

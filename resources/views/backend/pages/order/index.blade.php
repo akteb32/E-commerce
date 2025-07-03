@@ -25,7 +25,7 @@
 
 
 
-				{{-- Create new category --}}
+				{{-- Create new Order --}}
 				<div class="ms-auto">
 					<a href="#" class="btn btn-primary">Create Order</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
@@ -61,11 +61,14 @@
 									<th>payment_status</th>
 									<th>payment_method</th>
 									<th>notes</th>
-									<th>user_id</th>
 									<th>shipped_at</th>
 									<th>delivered_at</th>
 
 
+									{{-- foreignId --}}
+									<th>user_id</th>
+									
+									{{-- timestamps --}}
 									<th>Create_at</th>
 									<th>Update_at</th>
 
@@ -89,13 +92,19 @@
 										<td>{{$order->payment_status}}</td>
 										<td>{{$order->payment_method}}</td>
 										<td>{{$order->notes}}</td>
-										<td>{{$order->user_id}}</td>
 										<td>{{$order->shipped_at}}</td>
 										<td>{{$order->delivered_at}}</td>
 
+										{{-- foreignId --}}
+										<td>{{$order->user_id}}</td>
 
+										{{-- timestamps --}}
 										<td>{{$order->created_at}}</td>
 										<td>{{$order->updated_at}}</td>
+
+
+
+
 
 										{{-- edit button --}}
 										<td>
@@ -103,6 +112,9 @@
 												class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 										</td>
 
+
+										
+										
 										{{-- delete button --}}
 										<td>
 											<form method="POST" action="/order-delete/{{$order->id}}">

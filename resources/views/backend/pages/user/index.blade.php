@@ -25,7 +25,7 @@
 
 
 
-				{{-- Create new category --}}
+				{{-- Create new user --}}
 				<div class="ms-auto">
 					<a href="#" class="btn btn-primary">Create User</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
@@ -51,31 +51,20 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-
 									<th>name</th>
-
 									<th>phone</th>
-
 									<th>address</th>
-
 									<th>city</th>
-
 									<th>postal_code</th>
-
 									<th>country</th>
-
 									<th>avatar</th>
-
 									<th>password</th>
-
 									<th>email</th>
-
 									<th>email_verified_at</th>
-
 									<th>is_active</th>
 
+									{{-- timestamps --}}
 									<th>Create_at</th>
-
 									<th>Update_at</th>
 
 									<th colspan="3">Action</th>
@@ -88,34 +77,25 @@
 								@foreach($users as $user)
 									<tr>
 										<td>{{$user->id}}</td>
-
 										<td>{{$user->name}}</td>
-
 										<td>{{$user->phone}}</td>
-
 										<td>{{$user->address}}</td>
-
 										<td>{{$user->city}}</td>
-
 										<td>{{$user->postal_code}}</td>
-
 										<td>{{$user->country}}</td>
-
 										<td>{{$user->avatar}}</td>
-
 										<td>{{$user->password}}</td>
-
 										<td>{{$user->email}}</td>
-
 										<td>{{$user->email_verified_at}}</td>
-
 										<td>{{$user->is_active}}</td>
 
+										{{-- timestamps --}}
 										<td>{{$user->created_at}}</td>
-
 										<td>{{$user->updated_at}}</td>
 
 
+
+										
 
 										{{-- Add Role --}}
 										<td>
@@ -131,6 +111,7 @@
 											<a href="/user-edit/{{$user->id}}"
 												class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 										</td>
+
 
 
 
