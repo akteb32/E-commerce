@@ -102,7 +102,7 @@
 
 									{{-- delete button --}}
 									<td>
-        							<form method="POST" action="/category-delete/{{$category->id}}">
+        							<form method="POST" action="{{ route('category.delete', $category->id) }}">
          							 @CSRF
           							 @method('DELETE')
          							 <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill shadow-sm px-3">Delete</button>

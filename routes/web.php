@@ -34,6 +34,7 @@ Route::get('/category_create', [CategoryController::class, 'create'])->name('cat
 Route::post('/category_store', [CategoryController::class, 'store'])->name('category.store');
 Route::get('/category_edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/category_update/{category}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/category-delete/{category}', [CategoryController::class,'destroy'])->name('category.delete');
 
 
 // -- backend Route -- //
