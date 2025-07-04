@@ -86,12 +86,18 @@
                                     {{-- image --}}
                                     <div class="card-body">
                                         <label>Category image</label>
-                                        <form>
+                                          {{-- show current image --}}
+                                            {{-- @if ($category->image)
+                                                <div class="mb-3">
+                                                    <label>Current Image:</label><br>
+                                                    <img src="{{ asset('storage/' . $category->image) }}" alt="Category Image" width="150" class="img-thumbnail">
+                                                </div>
+                                            @endif --}}
                                             <input type="file" class="form-control" id="image-uploadify"
                                                 placeholder="uploade image" name="category_image"
                                                 accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
                                                 multiple>
-                                        </form>
+                                        
                                     </div>
 
                                     {{-- button --}}

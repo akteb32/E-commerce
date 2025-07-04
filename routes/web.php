@@ -28,7 +28,12 @@ Route::get('/dashboard', function () {
 // require __DIR__.'/auth.php';
 
 
-        
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category_create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category_store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category_edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/category_update/{category}', [CategoryController::class, 'update'])->name('category.update');
 
 
 // -- backend Route -- //
@@ -45,10 +50,10 @@ Route::get('/dashboard', function () {
 
 //     // -- Category Route -- //
 // Route::prefix('ca')->group(function () {
-    
-        
+
+
 //     });
- 
+
 // });
 
 
@@ -70,9 +75,6 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('/category', [CategoryController::class,'index'])->name('category.index');
-Route::get('/category_create', [CategoryController::class,'create'])->name('category.create');
-Route::post('/category_store', [CategoryController::class,'store'])->name('category.store');
 
 
 

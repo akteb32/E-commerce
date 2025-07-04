@@ -14,7 +14,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('category.update', $category->id)}}">
+                        <form method="POST" action="{{route('category.update', $category->id)}}" enctype="multipart/form-data">
                             @CSRF
                             @method('PUT')
                             <div class="form-group card-body">
@@ -73,12 +73,12 @@
                                         <div class="form-check form-check-inline">
                                             <label>Active</label>
                                             <input type="radio" class="form-check-input" id="active"
-                                                 value="{{$category->is_active}}" name="category_is_active">
+                                                 value="1" {{ $category->is_active == 1 ? 'checked' : '' }} name="category_is_active">
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <label>inActive</label>
                                             <input type="radio" class="form-check-input" id="inactive"
-                                                 value="{{$category->is_active}}" name="category_is_active">
+                                                  value="0" {{ $category->is_active == 0 ? 'checked' : '' }} name="category_is_active">
                                         </div>
                                     </div>
 
@@ -86,12 +86,12 @@
                                     {{-- image --}}
                                     <div class="card-body">
                                         <label>Category image</label>
-                                        <form>
+                                     
                                             <input type="file" class="form-control" id="image-uploadify"
                                                 placeholder="uploade image" name="category_image" value="{{$category->image}}"
                                                 accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
                                                 multiple>
-                                        </form>
+                                       
                                     </div>
 
                                     {{-- button --}}

@@ -95,7 +95,7 @@
 									
 									{{-- edit button --}}
 									<td>
-										<a href="/category-edit/{{$category->id}}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
+										<a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
 									</td>
 
 									
