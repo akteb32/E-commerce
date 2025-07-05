@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\ProfileController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,14 @@ Route::get('/category_edit/{category}', [CategoryController::class, 'edit'])->na
 Route::put('/category_update/{category}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category-delete/{category}', [CategoryController::class,'destroy'])->name('category.delete');
 
+
+
+Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('subcategory.index');
+Route::get('/subcategory_create', [SubcategoryController::class, 'create'])->name('subcategory.create');
+Route::post('/subcategory_store', [SubcategoryController::class, 'store'])->name('subcategory.store');
+Route::get('/subcategory_edit/{subcategory}', [SubcategoryController::class, 'edit'])->name('subcategory.edit');
+Route::put('/subcategory_update/{subcategory}', [SubcategoryController::class, 'update'])->name('subcategory.update');
+Route::delete('/subcategory-delete/{subcategory}', [SubcategoryController::class,'destroy'])->name('subcategory.delete');
 
 // -- backend Route -- //
 // Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {

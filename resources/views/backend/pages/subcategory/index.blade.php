@@ -27,7 +27,7 @@
 
 				{{-- Create new subcategory --}}
 				<div class="ms-auto">
-					<a href="#" class="btn btn-primary">Create Subcategory</a>
+					<a href="{{route('subcategory.create')}}" class="btn btn-primary">Create Subcategory</a>
 					{{-- <button type="button" class="btn btn-primary split-bg-primary text-primary"><a href="#">Create
 							Category</a></button> --}}
 				</div>
@@ -61,8 +61,8 @@
 									<th>meta_description</th>
 
 									{{-- foreignId --}}
-									<th>category_id</th>
-									
+									<th>category name</th>
+
 									{{-- timestamps --}}
 									<th>Create_at</th>
 									<th>Update_at</th>
@@ -75,46 +75,61 @@
 
 							<tbody>
 								@foreach($subcategories as $subcategory)
-								<tr>
-									<td>{{$subcategory->id}}</td>
-									<td>{{$subcategory->name}}</td>
-									<td>{{$subcategory->slug}}</td>
-									<td>{{$subcategory->description}}</td>
-									<td>{{$subcategory->image}}</td>
-									<td>{{$subcategory->is_active}}</td>
-									<td>{{$subcategory->sort_order}}</td>
-									<td>{{$subcategory->meta_title}}</td>
-									<td>{{$subcategory->meta_description}}</td>
+									<tr>
+										<td>{{$subcategory->id}}</td>
+										<td>{{$subcategory->name}}</td>
+										<td>{{$subcategory->slug}}</td>
+										<td>{{$subcategory->description}}</td>
+										<td>
+											@if($subcategory->image)
+												<img src="{{ asset('storage/' . $subcategory->image) }}" alt="Subcategory Image"
+													width="70" class="img-thumbnail">
+											@else
+												<span class="text-muted">No Image</span>
+											@endif
+										</td>
+										<td>
+											@if($subcategory->is_active)
+												<span class="badge bg-success">Active</span>
+											@else
+												<span class="badge bg-secondary">Inactive</span>
+											@endif
+										</td>
+										<td>{{$subcategory->sort_order}}</td>
+										<td>{{$subcategory->meta_title}}</td>
+										<td>{{$subcategory->meta_description}}</td>
 
-									{{-- foreignId --}}
-									<td>{{$subcategory->category_id}}</td>
+										{{-- foreignId --}}
+										<td>{{$subcategory->category->name ?? 'not found'}}</td>
 
-									{{-- timestamps --}}
-									<td>{{$subcategory->created_at}}</td>
-									<td>{{$subcategory->updated_at}}</td>
-
-
+										{{-- timestamps --}}
+										<td>{{ $subcategory->created_at->format('Y-m-d H:i')?? '-' }}</td>
+										<td>{{ $subcategory->updated_at->format('Y-m-d H:i')?? '-' }}</td>
 
 
 
-									{{-- edit button --}}
-									<td>
-										<a href="/subcategory-edit/{{$subcategory->id}}" class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
-									</td>
 
 
-									
+										{{-- edit button --}}
+										<td>
+											<a href="{{ route('subcategory.edit', $subcategory->id) }}"
+												class="btn btn-sm btn-outline-success rounded-pill shadow-sm px-3">Edit</a>
+										</td>
 
-									{{-- delete button --}}
-									<td>
-        							<form method="POST" action="/subcategory-delete/{{$subcategory->id}}">
-         							 @CSRF
-          							 @method('DELETE')
-         							 <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill shadow-sm px-3">Delete</button>
-        							</form>
-     							   </td>
-								
-								</tr>
+
+
+
+										{{-- delete button --}}
+										<td>
+											<form method="POST" action="{{ route('subcategory.delete', $subcategory->id) }}">
+												@CSRF
+												@method('DELETE')
+												<button type="submit"
+													class="btn btn-sm btn-outline-danger rounded-pill shadow-sm px-3">Delete</button>
+											</form>
+										</td>
+
+									</tr>
 								@endforeach
 							</tbody>
 

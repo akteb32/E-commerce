@@ -14,7 +14,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('user.update', $User->id)}}">
+                        <form method="POST" action="{{route('user.update', $User->id)}}" enctype="multipart/form-data">
                             @CSRF
                             @method('PUT')
                             <div class="form-group card-body">
@@ -111,12 +111,12 @@
                                     {{-- avatar --}}
                                     <div class="card-body">
                                         <label>Avatar image</label>
-                                        <form>
+                                      
                                             <input type="file" class="form-control" id="image-uploadify"
                                                 placeholder="uploade image" name="user_avatar" value="{{$User->avatar}}"
                                                 accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
                                                 multiple>
-                                        </form>
+                                        
                                     </div>
 
 

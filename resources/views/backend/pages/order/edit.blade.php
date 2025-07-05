@@ -14,7 +14,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('order.update', $order->id)}}">
+                        <form method="POST" action="{{route('order.update', $order->id)}}" enctype="multipart/form-data">
                             @CSRF
                             @method('PUT')
                             <div class="form-group card-body">

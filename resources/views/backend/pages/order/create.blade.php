@@ -15,7 +15,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('order.store')}}">
+                        <form method="POST" action="{{route('order.store')}}" enctype="multipart/form-data">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">

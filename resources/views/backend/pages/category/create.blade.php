@@ -1,8 +1,6 @@
 @extends('backend.layouts.backmaster')
 
 @section('main')
-
-
     <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
@@ -15,7 +13,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('category.store')}}">
+                        <form method="POST" action="{{ route('category.store') }}">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">
@@ -69,16 +67,16 @@
 
                                     {{-- activation --}}
                                     <div class="card-body">
-                                        <p>Category activation</p>
+                                        <p>category activation</p>
                                         <div class="form-check form-check-inline">
                                             <label>Active</label>
-                                            <input type="radio" class="form-check-input" id="active"
-                                                value="1" name="category_is_active">
+                                            <input type="radio" class="form-check-input" id="active" value="1"
+                                                name="category_is_active">
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <label>inActive</label>
-                                            <input type="radio" class="form-check-input" id="inactive"
-                                                 value="0" name="category_is_active">
+                                            <input type="radio" class="form-check-input" id="inactive" value="0"
+                                                name="category_is_active">
                                         </div>
                                     </div>
 
@@ -86,18 +84,7 @@
                                     {{-- image --}}
                                     <div class="card-body">
                                         <label>Category image</label>
-                                          {{-- show current image --}}
-                                            {{-- @if ($category->image)
-                                                <div class="mb-3">
-                                                    <label>Current Image:</label><br>
-                                                    <img src="{{ asset('storage/' . $category->image) }}" alt="Category Image" width="150" class="img-thumbnail">
-                                                </div>
-                                            @endif --}}
-                                            <input type="file" class="form-control" id="image-uploadify"
-                                                placeholder="uploade image" name="category_image"
-                                                accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                                multiple>
-                                        
+                                        <input type="file" class="form-control" name="category_image" accept="image/*">
                                     </div>
 
                                     {{-- button --}}

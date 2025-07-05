@@ -15,7 +15,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('product.store')}}">
+                        <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">
@@ -40,22 +40,22 @@
                                     <div class="card-body">
                                         <label>product description</label>
                                         <input class="form-control" type="text" placeholder="product description"
-                                            name="product_description" >
+                                            name="product_description">
                                     </div>
 
                                     {{-- short_description --}}
                                     <div class="card-body">
                                         <label>product short_description</label>
                                         <input class="form-control" type="text" placeholder="product short_description"
-                                            name="product_short_description" >
+                                            name="product_short_description">
                                     </div>
 
 
                                     {{-- sku --}}
                                     <div class="card-body">
                                         <label>product sku</label>
-                                        <input class="form-control" type="text" placeholder="product sku"
-                                            name="product_sku" required>
+                                        <input class="form-control" type="text" placeholder="product sku" name="product_sku"
+                                            required>
                                     </div>
 
 
@@ -144,13 +144,13 @@
                                         <p>product activation</p>
                                         <div class="form-check form-check-inline">
                                             <label>Active</label>
-                                            <input type="radio" class="form-check-input" id="active"
-                                                value="1" name="product_is_active">
+                                            <input type="radio" class="form-check-input" id="active" value="1"
+                                                name="product_is_active">
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <label>inActive</label>
-                                            <input type="radio" class="form-check-input" id="inactive"
-                                                 value="0" name="product_is_active">
+                                            <input type="radio" class="form-check-input" id="inactive" value="0"
+                                                name="product_is_active">
                                         </div>
                                     </div>
 
@@ -160,38 +160,35 @@
                                         <p>Product featured</p>
                                         <div class="form-check form-check-inline">
                                             <label>Featured</label>
-                                            <input type="radio" class="form-check-input" id="featured"
-                                                value="1" name="product_is_featured">
+                                            <input type="radio" class="form-check-input" id="featured" value="1"
+                                                name="product_is_featured">
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <label>unFeatured</label>
-                                            <input type="radio" class="form-check-input" id="unfeatured"
-                                                 value="0" name="product_is_featured">
+                                            <input type="radio" class="form-check-input" id="unfeatured" value="0"
+                                                name="product_is_featured">
                                         </div>
                                     </div>
+
 
 
                                     {{-- image --}}
                                     <div class="card-body">
                                         <label>Product image</label>
-                                        <form>
-                                            <input type="file" class="form-control" id="image-uploadify"
-                                                placeholder="uploade image" name="product_image"
-                                                accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                                multiple>
-                                        </form>
+                                        <input type="file" class="form-control" name="product_image" id="image-uploadify"
+                                            accept="image/*">
                                     </div>
 
                                     {{-- gallery --}}
-                                    <div class="card-body">
+                                    {{-- <div class="card-body">
                                         <label>Product gallery</label>
-                                        <form>
-                                            <input type="file" class="form-control" id="product_gallery"
-                                                placeholder="uploade images" name="product_gallery"
-                                                accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                                multiple>
-                                        </form>
-                                    </div>
+
+                                        <input type="file" class="form-control" id="product_gallery"
+                                            placeholder="uploade images" name="product_gallery"
+                                            accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
+                                            multiple>
+
+                                    </div> --}}
 
 
 

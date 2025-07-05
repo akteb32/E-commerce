@@ -15,10 +15,22 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('subcategory.store')}}">
+                        <form method="POST" action="{{route('subcategory.store')}}" enctype="multipart/form-data">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">
+
+
+                                    {{-- category name --}}
+                                    <div class="card-body">
+                                        <label>Category name</label>
+                                        <select name="category_id" class="form-control" required>
+
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     {{-- name --}}
                                     <div class="card-body">
@@ -47,7 +59,7 @@
                                     {{-- sort_order --}}
                                     <div class="card-body">
                                         <label>Subcategory sort order</label>
-                                        <input type="select" class="form-control" placeholder="sort_order"
+                                        <input type="number" class="form-control" placeholder="sort_order"
                                             name="subcategory_sort_order">
                                     </div>
 
@@ -73,12 +85,12 @@
                                         <div class="form-check form-check-inline">
                                             <label>Active</label>
                                             <input type="radio" class="form-check-input" id="active"
-                                                placeholder="is_active ?" value="1" name="subcategory_is_active">
+                                                 value="1" name="subcategory_is_active">
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <label>inActive</label>
                                             <input type="radio" class="form-check-input" id="inactive"
-                                                placeholder="is_active ?" value="0" name="subcategory_is_active">
+                                                 value="0" name="subcategory_is_active">
                                         </div>
                                     </div>
 
@@ -86,13 +98,9 @@
                                     {{-- image --}}
                                     <div class="card-body">
                                         <label>Subcategory image</label>
-                                        <form>
-                                            <input type="file" class="form-control" id="image-uploadify"
-                                                placeholder="uploade image" name="subcategory_image"
-                                                accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                                multiple>
-                                        </form>
+                                        <input type="file" class="form-control" name="subcategory_image" accept="image/*">
                                     </div>
+
 
                                     {{-- button --}}
                                     <button type="submit" class="btn btn-primary mt-3">Submit</button>

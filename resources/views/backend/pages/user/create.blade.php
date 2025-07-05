@@ -15,7 +15,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('user.store')}}">
+                        <form method="POST" action="{{route('user.store')}}" enctype="multipart/form-data">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">
@@ -111,12 +111,12 @@
                                     {{-- avatar --}}
                                     <div class="card-body">
                                         <label>Avatar image</label>
-                                        <form>
+                                        
                                             <input type="file" class="form-control" id="image-uploadify"
                                                 placeholder="uploade image" name="user_avatar" 
                                                 accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
                                                 multiple>
-                                        </form>
+                                        
                                     </div>
 
                                     {{-- button --}}

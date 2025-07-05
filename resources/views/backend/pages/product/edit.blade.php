@@ -14,7 +14,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('product.update', $product->id)}}">
+                        <form method="POST" action="{{route('product.update', $product->id)}}" enctype="multipart/form-data">
                             @CSRF
                             @method('PUT')
                             <div class="form-group card-body">
@@ -178,28 +178,34 @@
                                     </div>
 
 
-                                    {{-- image --}}
-                                    <div class="card-body">
-                                        <label>Product image</label>
-                                        <form>
-                                            <input type="file" class="form-control" id="image-uploadify"
-                                                placeholder="Uploade image" name="product_image" value="{{$product->image}}"
-                                                accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                                multiple>
-                                        </form>
-                                    </div>
+                                   
+                                              {{-- image --}}
+<div class="card-body">
+    <label>Product image</label>
+
+    {{-- Show current image --}}
+    @if($product->image)
+        <div class="mb-3">
+            <label>Current Image:</label><br>
+            <img src="{{ asset('storage/' . $product->image) }}" width="120" class="img-thumbnail">
+        </div>
+    @endif
+
+    {{-- Upload new image --}}
+    <input type="file" class="form-control" name="product_image" id="image-uploadify" accept="image/*">
+</div>
 
 
                                     {{-- gallery --}}
-                                    <div class="card-body">
+                                    {{-- <div class="card-body">
                                         <label>Product gallery</label>
-                                        <form>
+                                       
                                             <input type="file" class="form-control" id="product_gallery"
                                                 placeholder="Uploade image" name="product_gallery" value="{{$product->gallery}}"
                                                 accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
                                                 multiple>
-                                        </form>
-                                    </div>
+                                        
+                                    </div> --}}
 
 
 
