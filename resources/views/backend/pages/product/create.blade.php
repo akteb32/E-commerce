@@ -20,6 +20,31 @@
                             <div class="form-group card-body">
                                 <div class="card">
 
+
+                                    {{-- category name --}}
+                                    <div class="card-body">
+                                        <label>Category name</label>
+                                        <select name="category_id" class="form-control" required>
+
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
+                                    {{-- subcategory name --}}
+                                    <div class="card-body">
+                                        <label>Subcategory name</label>
+                                        <select name="subcategory_id" class="form-control" required>
+
+                                            @foreach($subcategories as $subcategory)
+                                                <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
                                     {{-- name --}}
                                     <div class="card-body">
                                         <label>product name</label>
@@ -98,29 +123,34 @@
                                     {{-- weight --}}
                                     <div class="card-body">
                                         <label>Product weight</label>
-                                        <input type="number" class="form-control" placeholder="Product weight"
+                                        <input type="text" class="form-control" placeholder="Product weight"
                                             name="product_weight">
                                     </div>
 
                                     {{-- dimensions --}}
                                     <div class="card-body">
                                         <label>Product dimensions</label>
-                                        <input type="select" class="form-control" placeholder="Product dimensions"
+                                        <input type="text" class="form-control" placeholder="Product dimensions"
                                             name="product_dimensions">
                                     </div>
 
                                     {{-- manage_stock --}}
                                     <div class="card-body">
-                                        <label>Product manage_stock</label>
-                                        <input type="number" class="form-control" placeholder="Product manage_stock"
-                                            name="product_manage_stock">
+                                        <label for="product_manage_stock">Manage Stock</label><br>
+                                        <input type="checkbox" name="product_manage_stock" id="product_manage_stock"
+                                            value="1">
+                                        <label for="product_manage_stock">Enable Stock Management</label>
                                     </div>
 
                                     {{-- stock_status --}}
                                     <div class="card-body">
-                                        <label>Product stock_status</label>
-                                        <input type="text" class="form-control" placeholder="Product stock_status"
-                                            name="product_stock_status">
+                                        <label for="product_stock_status">Stock Status</label>
+                                        <select name="product_stock_status" class="form-control"
+                                            id="product_stock_status">
+                                            <option value="in_stock">In Stock</option>
+                                            <option value="out_of_stock">Out of Stock</option>
+                                            <option value="on_backorder"> On Backorder</option>
+                                        </select>
                                     </div>
 
 
@@ -141,32 +171,32 @@
 
                                     {{-- activation --}}
                                     <div class="card-body">
-                                        <p>product activation</p>
-                                        <div class="form-check form-check-inline">
-                                            <label>Active</label>
-                                            <input type="radio" class="form-check-input" id="active" value="1"
-                                                name="product_is_active">
+                                        <label>Product activation</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="product_is_active"
+                                                id="is_active_1" value="1">
+                                            <label class="form-check-label" for="is_active_1">Active</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <label>inActive</label>
-                                            <input type="radio" class="form-check-input" id="inactive" value="0"
-                                                name="product_is_active">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="product_is_active"
+                                                id="is_active_0" value="0">
+                                            <label class="form-check-label" for="is_active_0">Inactive</label>
                                         </div>
                                     </div>
 
 
                                     {{-- Featured --}}
-                                    <div class="card-body">
-                                        <p>Product featured</p>
-                                        <div class="form-check form-check-inline">
-                                            <label>Featured</label>
-                                            <input type="radio" class="form-check-input" id="featured" value="1"
-                                                name="product_is_featured">
+                                   <div class="card-body">
+                                        <label>Product featured</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="product_is_featured"
+                                                id="is_featured_1" value="1">
+                                            <label class="form-check-label" for="is_featured_1">Featured</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <label>unFeatured</label>
-                                            <input type="radio" class="form-check-input" id="unfeatured" value="0"
-                                                name="product_is_featured">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="product_is_featured"
+                                                id="is_featured_0" value="0">
+                                            <label class="form-check-label" for="is_featured_0">unFeatured</label>
                                         </div>
                                     </div>
 
@@ -179,17 +209,7 @@
                                             accept="image/*">
                                     </div>
 
-                                    {{-- gallery --}}
-                                    {{-- <div class="card-body">
-                                        <label>Product gallery</label>
-
-                                        <input type="file" class="form-control" id="product_gallery"
-                                            placeholder="uploade images" name="product_gallery"
-                                            accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                            multiple>
-
-                                    </div> --}}
-
+                                  
 
 
                                     {{-- button --}}

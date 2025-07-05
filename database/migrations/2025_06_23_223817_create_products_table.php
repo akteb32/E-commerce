@@ -30,7 +30,6 @@ return new class extends Migration
             $table->boolean('manage_stock')->default(true)->comment('Stock management flag');
             $table->enum('stock_status',['in_stock','out_of_stock','on_backorder'])->default('in_stock')->comment('Stock status');
             $table->string('image',255)->nullable()->comment('Main product image');
-            $table->json('gallery')->nullable()->comment('Additional product images');
             $table->string('meta_title',255)->nullable()->comment('SEO meta title');
             $table->text('meta_description')->nullable()->comment('SEO meta description');
             $table->decimal('rating_average',2,1)->default(0.0)->comment('Average rating');

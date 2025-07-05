@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\ProfileController;
 use Faker\Guesser\Name;
@@ -45,6 +46,18 @@ Route::post('/subcategory_store', [SubcategoryController::class, 'store'])->name
 Route::get('/subcategory_edit/{subcategory}', [SubcategoryController::class, 'edit'])->name('subcategory.edit');
 Route::put('/subcategory_update/{subcategory}', [SubcategoryController::class, 'update'])->name('subcategory.update');
 Route::delete('/subcategory-delete/{subcategory}', [SubcategoryController::class,'destroy'])->name('subcategory.delete');
+
+
+
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product_create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product_store', [ProductController::class, 'store'])->name('product.store');
+Route::get('/product_edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/product_update/{product}', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/product-delete/{product}', [ProductController::class,'destroy'])->name('product.delete');
+
+
+
 
 // -- backend Route -- //
 // Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {
