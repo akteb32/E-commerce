@@ -4,6 +4,8 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SubcategoryController;
+use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\UserRoleController;
 use App\Http\Controllers\ProfileController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +67,19 @@ Route::post('/order_store', [OrderController::class, 'store'])->name('order.stor
 Route::get('/order_edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
 Route::put('/order_update/{order}', [OrderController::class, 'update'])->name('order.update');
 Route::delete('/order-delete/{order}', [OrderController::class,'destroy'])->name('order.delete');
+
+
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/user_create', [UserController::class, 'create'])->name('user.create');
+Route::post('/user_store', [UserController::class, 'store'])->name('user.store');
+Route::get('/user_edit/{User}', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/user_update/{User}', [UserController::class, 'update'])->name('user.update');
+Route::delete('/user-delete/{User}', [UserController::class,'destroy'])->name('user.delete');
+
+
+Route::get('/user-role/{user}', [UserRoleController::class, 'edit'])->name('user.manageRoles');
+Route::post('/user-role/{user}', [UserRoleController::class, 'update'])->name('user.updateRoles');
 
 
 

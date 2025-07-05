@@ -1,8 +1,7 @@
 @extends('backend.layouts.backmaster')
 
 @section('main')
-
-<!--start page wrapper -->
+    <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
             <div class="card">
@@ -14,17 +13,37 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('user.update', $User->id)}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
                             @CSRF
                             @method('PUT')
                             <div class="form-group card-body">
                                 <div class="card">
 
+
+
+
+
+                                    {{-- edit role --}}
+                                    <div class="card-body">
+                                        <label>User Role</label>
+                                        <select name="roles" class="form-control">
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role->id }}"
+                                                    {{ $user->roles->contains($role->id) ? 'selected' : '' }}>
+                                                    {{ $role->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
+
+
                                     {{-- name --}}
                                     <div class="card-body">
                                         <label>User Name</label>
-                                        <input class="form-control" type="text" placeholder="user name"
-                                            name="user_name" value="{{$User->name}}" required>
+                                        <input class="form-control" type="text" placeholder="user name" name="user_name"
+                                            value="{{ $user->name }}" required>
                                     </div>
 
 
@@ -32,23 +51,23 @@
                                     <div class="card-body">
                                         <label>Phone Number</label>
                                         <input class="form-control" type="text" placeholder="user phone"
-                                            name="user_phone" value="{{$User->phone}}" required>
+                                            name="user_phone" value="{{ $user->phone }}" >
                                     </div>
 
-                                    
+
                                     {{-- address --}}
                                     <div class="card-body">
                                         <label>Address</label>
                                         <input class="form-control" type="text" placeholder="user address"
-                                            name="user_address" value="{{$User->address}}" required>
+                                            name="user_address" value="{{ $user->address }}" >
                                     </div>
 
 
                                     {{-- city --}}
                                     <div class="card-body">
                                         <label>City</label>
-                                        <input class="form-control" type="text" placeholder="user city"
-                                            name="user_city" value="{{$User->city}}" >
+                                        <input class="form-control" type="text" placeholder="user city" name="user_city"
+                                            value="{{ $user->city }}">
                                     </div>
 
 
@@ -56,7 +75,7 @@
                                     <div class="card-body">
                                         <label>Postal Code</label>
                                         <input class="form-control" type="text" placeholder="user postal code"
-                                            name="user_postal_code" value="{{$User->postal_code}}" >
+                                            name="user_postal_code" value="{{ $user->postal_code }}">
                                     </div>
 
 
@@ -64,15 +83,7 @@
                                     <div class="card-body">
                                         <label>Country</label>
                                         <input class="form-control" type="text" placeholder="user country"
-                                            name="user_country" value="{{$User->country}}" >
-                                    </div>
-
-
-                                    {{-- password --}}
-                                    <div class="card-body">
-                                        <label>Password</label>
-                                        <input class="form-control" type="password" placeholder="password"
-                                            name="user_password" value="{{$User->password}}" required>
+                                            name="user_country" value="{{ $user->country }}">
                                     </div>
 
 
@@ -80,45 +91,48 @@
                                     <div class="card-body">
                                         <label>Email Address</label>
                                         <input class="form-control" type="email" placeholder="email address"
-                                            name="user_email" value="{{$User->email}}" required>
+                                            name="user_email" value="{{ $user->email }}" required>
                                     </div>
 
 
-                                    {{-- email_verified_at --}}
-                                    <div class="card-body">
-                                        <label>Email verified_at</label>
-                                        <input type="datetime" class="form-control" placeholder="email_verified_at" value="{{$User->email_verified_at}}"
-                                            name="user_email_verified_at">
-                                    </div>
+                                 
 
 
                                     {{-- activation --}}
                                     <div class="card-body">
-                                        <p>User activation</p>
-                                        <div class="form-check form-check-inline">
-                                            <label>Active</label>
-                                            <input type="radio" class="form-check-input" id="active"
-                                                 value="{{$User->is_active}}" name="user_is_active">
+                                        <label>User activation</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="user_is_active"
+                                                id="is_active_1" value="1" {{ $user->is_active ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="is_active_1">Active</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <label>inActive</label>
-                                            <input type="radio" class="form-check-input" id="inactive"
-                                                 value="{{$User->is_active}}" name="user_is_active">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="user_is_active"
+                                                id="is_active_0" value="0" {{ !$user->is_active ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="is_active_0">Inactive</label>
                                         </div>
                                     </div>
+
 
 
                                     {{-- avatar --}}
                                     <div class="card-body">
-                                        <label>Avatar image</label>
-                                      
-                                            <input type="file" class="form-control" id="image-uploadify"
-                                                placeholder="uploade image" name="user_avatar" value="{{$User->avatar}}"
-                                                accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
-                                                multiple>
-                                        
-                                    </div>
+                                        <label>User image</label>
 
+                                        {{-- Show current image --}}
+                                        @if ($user->avatar)
+                                            <div class="mb-3">
+                                                <label>Current Image:</label><br>
+                                                <img src="{{ asset('storage/' . $user->avatar) }}" width="120"
+                                                    class="img-thumbnail">
+                                            </div>
+                                        @endif
+
+
+                                        {{-- Upload new image --}}
+                                        <input type="file" class="form-control" name="user_avatar" id="image-uploadify"
+                                            accept="image/*">
+                                    </div>
 
 
                                     {{-- button --}}
@@ -131,38 +145,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-    
-        
-       
-       
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
