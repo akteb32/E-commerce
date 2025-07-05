@@ -89,7 +89,7 @@ class CategoryController extends Controller
             'meta_title' => $validated['category_meta_title'] ?? null,
             'meta_description' => $validated['category_meta_description'] ?? null,
             
-            'updated_at' => now(),
+            
         ]);
 
         return redirect()->route('category.index');

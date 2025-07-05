@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\ProfileController;
@@ -56,6 +57,14 @@ Route::get('/product_edit/{product}', [ProductController::class, 'edit'])->name(
 Route::put('/product_update/{product}', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product-delete/{product}', [ProductController::class,'destroy'])->name('product.delete');
 
+
+
+Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+Route::get('/order_create', [OrderController::class, 'create'])->name('order.create');
+Route::post('/order_store', [OrderController::class, 'store'])->name('order.store');
+Route::get('/order_edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
+Route::put('/order_update/{order}', [OrderController::class, 'update'])->name('order.update');
+Route::delete('/order-delete/{order}', [OrderController::class,'destroy'])->name('order.delete');
 
 
 

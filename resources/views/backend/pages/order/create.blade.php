@@ -1,8 +1,6 @@
 @extends('backend.layouts.backmaster')
 
 @section('main')
-
-
     <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
@@ -12,25 +10,56 @@
 
 
 
+                        @php
+                            $statuses = ['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'];
+                            $paymentStatuses = ['pending', 'paid', 'failed', 'refunded'];
+                        @endphp
+
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('order.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('order.store') }}" enctype="multipart/form-data">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">
 
 
 
+                                    {{-- user name --}}
+                                    <div class="card-body">
+                                        <label>user name</label>
+                                        <select name="user_id" class="form-control" required>
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">
+                                                    {{ $user->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
+
+
                                     {{-- order_number --}}
                                     <div class="card-body">
                                         <label>order_number</label>
-                                        <input class="form-control" type="number" placeholder="order_number"
+                                        <input class="form-control" type="text" placeholder="order_number"
                                             name="order_number" required>
                                     </div>
 
 
-                                  
+
+                                    {{-- status --}}
+                                    <div class="card-body">
+                                        <label>Order Status</label>
+                                        <select class="form-control" name="status" required>
+                                            @foreach ($statuses as $status)
+                                                <option value="{{ $status }}">
+                                                    {{ ucfirst($status) }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     {{-- total_amount --}}
                                     <div class="card-body">
@@ -54,7 +83,7 @@
                                     <div class="card-body">
                                         <label>order shipping_amount</label>
                                         <input class="form-control" type="number" placeholder="order shipping_amount"
-                                            name="order_shipping_amount" required>
+                                            name="order_shipping_amount">
                                     </div>
 
 
@@ -63,7 +92,7 @@
                                     <div class="card-body">
                                         <label>order discount_amount</label>
                                         <input class="form-control" type="number" placeholder="order discount_amount"
-                                            name="order_discount_amount" required>
+                                            name="order_discount_amount">
                                     </div>
 
 
@@ -72,15 +101,20 @@
                                     <div class="card-body">
                                         <label>order currency</label>
                                         <input class="form-control" type="text" placeholder="order currency"
-                                            name="order_currency" required>
+                                            name="order_currency">
                                     </div>
 
 
                                     {{-- payment_status --}}
                                     <div class="card-body">
-                                        <label>order payment_status</label>
-                                        <input class="form-control" type="number" placeholder="order payment_status"
-                                            name="order_payment_status" required>
+                                        <label>Payment Status</label>
+                                        <select class="form-control" name="order_payment_status">
+                                            @foreach ($paymentStatuses as $status)
+                                                <option value="{{ $status }}">
+                                                    {{ ucfirst($status) }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
 
@@ -89,7 +123,7 @@
                                     <div class="card-body">
                                         <label>order payment_method</label>
                                         <input class="form-control" type="text" placeholder="order payment_method"
-                                            name="order_payment_method" required>
+                                            name="order_payment_method">
                                     </div>
 
 
@@ -97,8 +131,8 @@
                                     {{-- notes --}}
                                     <div class="card-body">
                                         <label>order notes</label>
-                                        <input class="form-control" type="text" placeholder="order notes" name="order_notes"
-                                            required>
+                                        <input class="form-control" type="text" placeholder="order notes"
+                                            name="order_notes">
                                     </div>
 
 
@@ -106,17 +140,16 @@
 
                                     {{-- shipped_at --}}
                                     <div class="card-body">
-                                        <label>order shipped_at</label>
-                                        <input type="datetime" class="form-control" placeholder="shipped_at"
-                                            name="order_shipped_at">
+                                        <label>Shipped At</label>
+                                        <input type="datetime-local" class="form-control" name="order_shipped_at">
+
                                     </div>
 
 
                                     {{-- delivered_at --}}
                                     <div class="card-body">
-                                        <label>order delivered_at</label>
-                                        <input type="datetime" class="form-control" placeholder="delivered_at"
-                                            name="order_delivered_at">
+                                        <label>Delivered At</label>
+                                        <input type="datetime-local" class="form-control" name="order_delivered_at">
                                     </div>
 
 
