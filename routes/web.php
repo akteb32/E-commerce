@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\ShippingController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserRoleController;
@@ -90,6 +91,21 @@ Route::post('/coupon_store', [CouponController::class, 'store'])->name('coupon.s
 Route::get('/coupon_edit/{coupon}', [CouponController::class, 'edit'])->name('coupon.edit');
 Route::put('/coupon_update/{coupon}', [CouponController::class, 'update'])->name('coupon.update');
 Route::delete('/coupon-delete/{coupon}', [CouponController::class,'destroy'])->name('coupon.delete');
+
+
+
+
+Route::get('/shipping_address', [ShippingController::class, 'index'])->name('shipping.index');
+Route::get('/shipping_address_create', [ShippingController::class, 'create'])->name('shipping.create');
+Route::post('/shipping_address_store', [ShippingController::class, 'store'])->name('shipping.store');
+Route::get('/shipping_address_edit/{shipping_address}', [ShippingController::class, 'edit'])->name('shipping.edit');
+Route::put('/shipping_address_update/{shipping_address}', [ShippingController::class, 'update'])->name('shipping.update');
+Route::delete('/shipping_address-delete/{shipping_address}', [ShippingController::class,'destroy'])->name('shipping.delete');
+
+
+
+
+
 
 // -- backend Route -- //
 // Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {

@@ -1,8 +1,6 @@
 @extends('backend.layouts.backmaster')
 
 @section('main')
-
-
     <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
@@ -15,17 +13,27 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('category.store')}}">
+                        <form method="POST" action="{{ route('shipping.store') }}">
                             @CSRF
                             <div class="form-group card-body">
                                 <div class="card">
 
-                                     {{-- first_name --}}
+
+                                    {{-- order_id --}}
+                                    <div class="card-body">
+                                        <label for="order_id">Select Order</label>
+                                        <select name="order_id" class="form-control" required>
+                                            @foreach ($orders as $order)
+                                                <option value="{{ $order->id }}">Order #{{ $order->id }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    {{-- first_name --}}
                                     <div class="card-body">
                                         <label>First name</label>
                                         <input class="form-control" type="text" placeholder="first_name"
-                                            name="shipping_address_first_name" 
-                                            required>
+                                            name="shipping_address_first_name" required>
                                     </div>
 
 
@@ -33,8 +41,7 @@
                                     <div class="card-body">
                                         <label>Last name</label>
                                         <input class="form-control" type="text" placeholder="last_name"
-                                            name="shipping_address_last_name" 
-                                            required>
+                                            name="shipping_address_last_name" required>
                                     </div>
 
 
@@ -42,7 +49,7 @@
                                     <div class="card-body">
                                         <label>Company</label>
                                         <input class="form-control" type="text" placeholder="company name"
-                                            name="shipping_address_company"  >
+                                            name="shipping_address_company">
                                     </div>
 
 
@@ -50,8 +57,7 @@
                                     <div class="card-body">
                                         <label>Address line_1</label>
                                         <input class="form-control" type="text" placeholder="123 Main Street"
-                                            name="shipping_address_line_1" 
-                                            >
+                                            name="shipping_address_line_1">
                                     </div>
 
 
@@ -59,8 +65,7 @@
                                     <div class="card-body">
                                         <label>Address line_2</label>
                                         <input class="form-control" type="text" placeholder="Apartment 4B"
-                                            name="shipping_address_line_2" 
-                                            >
+                                            name="shipping_address_line_2">
                                     </div>
 
 
@@ -69,8 +74,7 @@
                                     <div class="card-body">
                                         <label>City</label>
                                         <input class="form-control" type="text" placeholder="city name"
-                                            name="shipping_address_city" 
-                                            >
+                                            name="shipping_address_city">
                                     </div>
 
 
@@ -79,8 +83,7 @@
                                     <div class="card-body">
                                         <label>State</label>
                                         <input class="form-control" type="text" placeholder="NY"
-                                            name="shipping_address_state" 
-                                            >
+                                            name="shipping_address_state">
                                     </div>
 
 
@@ -90,8 +93,7 @@
                                     <div class="card-body">
                                         <label>Postal code</label>
                                         <input class="form-control" type="text" placeholder="10001"
-                                            name="shipping_address_postal_code" 
-                                            >
+                                            name="shipping_address_postal_code">
                                     </div>
 
 
@@ -100,8 +102,7 @@
                                     <div class="card-body">
                                         <label>Country</label>
                                         <input class="form-control" type="text" placeholder="country name"
-                                            name="shipping_address_country" 
-                                            required>
+                                            name="shipping_address_country" required>
                                     </div>
 
 
@@ -111,8 +112,7 @@
                                     <div class="card-body">
                                         <label>Phone</label>
                                         <input class="form-control" type="text" placeholder="phone number"
-                                            name="shipping_address_phone" 
-                                            required>
+                                            name="shipping_address_phone" required>
                                     </div>
 
 
