@@ -1,8 +1,7 @@
 @extends('backend.layouts.backmaster')
 
 @section('main')
-
-<!--start page wrapper -->
+    <!--start page wrapper -->
     <div class="page-wrapper">
         <div class="page-content">
             <div class="card">
@@ -14,7 +13,7 @@
 
 
                         {{-- form --}}
-                        <form method="POST" action="{{route('coupon.update', $coupon->id)}}">
+                        <form method="POST" action="{{ route('coupon.update', $coupon->id) }}">
                             @CSRF
                             @method('PUT')
                             <div class="form-group card-body">
@@ -24,38 +23,43 @@
                                     <div class="card-body">
                                         <label>coupon code</label>
                                         <input class="form-control" type="text" placeholder="coupon code"
-                                            name="coupon_code" value="{{$coupon->code}}" required>
+                                            name="coupon_code" value="{{ $coupon->code }}" required>
                                     </div>
 
 
                                     {{-- type --}}
                                     <div class="card-body">
-                                        <label>coupon type</label>
-                                        <input class="form-control" type="text" placeholder="coupon type"
-                                            name="coupon_type" value="{{$coupon->type}}" required>
+                                        <label for="coupon_type">Coupon Type</label>
+                                        <select class="form-control" name="coupon_type" id="coupon_type" required>
+                                            <option value="fixed" {{ $coupon->type == 'fixed' ? 'selected' : '' }}>fixed
+                                            </option>
+                                            <option value="percentage"
+                                                {{ $coupon->type == 'percentage' ? 'selected' : '' }}>percentage</option>
+                                        </select>
                                     </div>
+
 
 
                                     {{-- value --}}
                                     <div class="card-body">
                                         <label>coupon value</label>
-                                        <input class="form-control" type="number" placeholder="coupon value" value="{{$coupon->value}}"
-                                            name="coupon_value" required>
+                                        <input class="form-control" type="number" placeholder="coupon value"
+                                            value="{{ $coupon->value }}" name="coupon_value">
                                     </div>
 
                                     {{-- minimum_amount --}}
                                     <div class="card-body">
                                         <label>coupon minimum_amount</label>
-                                        <input class="form-control" type="number" placeholder="coupon minimum_amount" value="{{$coupon->minimum_amount}}"
-                                            name="coupon_minimum_amount" required>
+                                        <input class="form-control" type="number" placeholder="coupon minimum_amount"
+                                            value="{{ $coupon->minimum_amount }}" name="coupon_minimum_amount">
                                     </div>
 
 
                                     {{-- usage_limit --}}
                                     <div class="card-body">
                                         <label>coupon usage_limit</label>
-                                        <input class="form-control" type="number" placeholder="coupon usage_limit" value="{{$coupon->usage_limit}}"
-                                            name="coupon_usage_limit" required>
+                                        <input class="form-control" type="number" placeholder="coupon usage_limit"
+                                            value="{{ $coupon->usage_limit }}" name="coupon_usage_limit">
                                     </div>
 
 
@@ -63,48 +67,52 @@
                                     {{-- used_count --}}
                                     <div class="card-body">
                                         <label>coupon used_count</label>
-                                        <input class="form-control" type="number" placeholder="coupon used_count" value="{{$coupon->used_count}}"
-                                            name="coupon_used_count" required>
+                                        <input class="form-control" type="number" placeholder="coupon used_count"
+                                            value="{{ $coupon->used_count }}" name="coupon_used_count">
                                     </div>
 
-                                 
 
 
-                                    
+
+
 
                                     {{-- activation --}}
                                     <div class="card-body">
-                                        <p>coupon activation</p>
-                                        <div class="form-check form-check-inline">
-                                            <label>Active</label>
-                                            <input type="radio" class="form-check-input" id="active"
-                                                 value="{{$coupon->is_active}}" name="coupon_is_active">
+                                        <label>coupon activation</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="coupon_is_active"
+                                                id="is_active_1" value="1" {{ $coupon->is_active ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="is_active_1">Active</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <label>inActive</label>
-                                            <input type="radio" class="form-check-input" id="inactive"
-                                                 value="{{$coupon->is_active}}" name="coupon_is_active">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="coupon_is_active"
+                                                id="is_active_0" value="0" {{ !$coupon->is_active ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="is_active_0">Inactive</label>
                                         </div>
                                     </div>
+
 
 
 
                                     {{-- starts_at --}}
                                     <div class="card-body">
-                                        <label>coupon starts_at</label>
-                                        <input type="datetime" class="form-control" placeholder="starts_at" value="{{$coupon->starts_at}}"
-                                            name="coupon_starts_at">
+                                        <label>starts_at</label>
+                                        <input type="datetime-local" class="form-control" name="coupon_starts_at"
+                                            value="{{ $coupon->starts_at ? \Carbon\Carbon::parse($coupon->starts_at)->format('Y-m-d\TH:i') : '' }}">
                                     </div>
+
 
 
                                     {{-- expires_at --}}
-                                    <div class="card-body">
-                                        <label>coupon expires_at</label>
-                                        <input type="datetime" class="form-control" placeholder="expires_at" value="{{$coupon->expires_at}}"
-                                            name="coupon_expires_at">
+                                    <div class="card-body">[]
+                                        <label>expires_at</label>
+                                        <input type="datetime-local" class="form-control" name="coupon_expires_at"
+                                            value="{{ $coupon->expires_at ? \Carbon\Carbon::parse($coupon->expires_at)->format('Y-m-d\TH:i') : '' }}">
                                     </div>
 
-                                   
+
+
+
 
 
 
@@ -119,17 +127,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-    
-        
-       
-       
-
-
-
-    
-
 @endsection

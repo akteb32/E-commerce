@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SubcategoryController;
@@ -82,6 +83,13 @@ Route::get('/user-role/{user}', [UserRoleController::class, 'edit'])->name('user
 Route::post('/user-role/{user}', [UserRoleController::class, 'update'])->name('user.updateRoles');
 
 
+
+Route::get('/coupon', [CouponController::class, 'index'])->name('coupon.index');
+Route::get('/coupon_create', [CouponController::class, 'create'])->name('coupon.create');
+Route::post('/coupon_store', [CouponController::class, 'store'])->name('coupon.store');
+Route::get('/coupon_edit/{coupon}', [CouponController::class, 'edit'])->name('coupon.edit');
+Route::put('/coupon_update/{coupon}', [CouponController::class, 'update'])->name('coupon.update');
+Route::delete('/coupon-delete/{coupon}', [CouponController::class,'destroy'])->name('coupon.delete');
 
 // -- backend Route -- //
 // Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {
