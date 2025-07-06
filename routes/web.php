@@ -8,6 +8,9 @@ use App\Http\Controllers\backend\ShippingController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserRoleController;
+use App\Http\Controllers\frontend\FrontCategoryController;
+use App\Http\Controllers\frontend\FrontProductController;
+use App\Http\Controllers\frontend\FrontSubcategoryController;
 use App\Http\Controllers\ProfileController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
@@ -42,9 +45,11 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
     // -- dashboard Route -- //
-    Route::get('/dashboard', function () {return view('backend/dashboard-backend');})->name('dashbord.admin');
+    Route::get('/dashboard', function () {
+        return view('backend/dashboard-backend');
+    })->name('dashbord.admin');
 
     // -- user Route -- //
     Route::prefix('user')->group(function () {
@@ -140,11 +145,20 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    // --  -- //
-    Route::prefix('')->group(function () {});
+    // -- Category Route -- //
+    Route::prefix('category')->group(function () {
+        Route::get('/category', [FrontCategoryController::class, 'index'])->name('frontcategory.index');
+    });
+    // -- subcategory Route -- //
+    Route::prefix('subcategory')->group(function () {
+        Route::get('/subcategory', [FrontSubcategoryController::class, 'index'])->name('frontsubcategory.index');
+    });
+    // -- product Route -- //
+    Route::prefix('product')->group(function () {
+        Route::get('/product', [FrontProductController::class, 'index'])->name('frontproduct.index');
+    });
+
+
+
+
 });
-
-
-
-
-

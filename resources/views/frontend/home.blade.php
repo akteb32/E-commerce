@@ -3,7 +3,7 @@
 
 @section('main')
 
-
+         {{-- image slider   --}}
         <section class="home-slider position-relative mb-30">
             <div class="container">
                 <div class="home-slide-cover mt-30">
@@ -40,6 +40,14 @@
             </div>
         </section>
         <!--End hero slider-->
+
+
+
+
+
+
+
+        {{--------------------------- Featured Categories -----------------------------}}
         <section class="popular-categories section-padding">
             <div class="container wow animate__animated animate__fadeIn">
                 <div class="section-title">
@@ -132,10 +140,12 @@
                 </div>
             </div>
         </section>
-        <!--End category slider-->
+     
+        {{-- banners --}}
         <section class="banners mb-25">
             <div class="container">
                 <div class="row">
+                    {{-- 1 --}}
                     <div class="col-lg-4 col-md-6">
                         <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay="0">
                             <img src="{{asset('frontend/assets/imgs/banner/banner-1.png')}}" alt="" />
@@ -148,6 +158,7 @@
                             </div>
                         </div>
                     </div>
+                    {{-- 2 --}}
                     {{-- <div class="col-lg-4 col-md-6">
                         <div class="banner-img wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
                             <img src="{{asset('frontend/assets/imgs/banner/banner-2.png')}}" alt="" />
@@ -160,7 +171,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 d-md-none d-lg-flex">
+                    {{-- 3 --}}
+                    {{-- <div class="col-lg-4 d-md-none d-lg-flex">
                         <div class="banner-img mb-sm-0 wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
                             <img src="{{asset('frontend/assets/imgs/banner/banner-3.png')}}" alt="" />
                             <div class="banner-text">
@@ -168,11 +180,11 @@
                                 <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i class="fi-rs-arrow-small-right"></i></a>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>  --}}
                 </div>
             </div>
         </section>
-        <!--End banners-->
+      
 
 
 
@@ -182,14 +194,21 @@
  
         
 
-        {{-- New Products --}}
+
+
+
+        {{--------------------------- New Products -----------------------------}}
         <section class="product-tabs section-padding position-relative">
             <div class="container">
+
+                 {{--  product 'nav-tabs' --}}
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
                     <h3> New Products </h3>
+
+                   
                     <ul class="nav nav-tabs links" id="myTab" role="tablist">
 
-                        {{-- one product --}}
+                        
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">All</button>
                         </li>
@@ -214,16 +233,22 @@
                     </ul>
                 </div>
                 <!--End nav-tabs-->
+
+
+
+                {{--  product card --}}
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
+
+                            {{-- card 1  --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="shop-product-right.html">
-                                                <img class="default-img" src="{{asset('')}}frontend/assets/imgs/shop/product-1-1.jpg" alt="" />
-                                                <img class="hover-img" src="{{asset('')}}frontend/assets/imgs/shop/product-1-2.jpg" alt="" />
+                                                <img class="default-img" src="{{asset('frontend/assets/imgs/shop/product-1-1.jpg')}}" alt="" />
+                                                <img class="hover-img" src="{{asset('frontend/assets/imgs/shop/product-1-2.jpg')}}" alt="" />
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -262,6 +287,9 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+
+                            {{-- card 2  --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".2s">
                                     <div class="product-img-action-wrap">
@@ -307,7 +335,8 @@
                                 </div>
                             </div>
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -350,9 +379,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -392,9 +423,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".5s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -437,9 +470,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -479,9 +514,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".2s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -521,9 +558,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -566,9 +605,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -611,9 +652,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6 d-none d-xl-block">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6 d-none d-xl-block">
                                 <div class="product-cart-wrap wow animate__animated animate__fadeIn" data-wow-delay=".5s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -653,14 +696,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
+
                         </div>
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab one-->
+
+
                     <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
                         <div class="row product-grid-4">
+
+                            {{-- card 2.1 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
@@ -706,6 +754,8 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+                            {{-- card 2.2 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
@@ -751,7 +801,9 @@
                                 </div>
                             </div>
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -794,9 +846,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -836,9 +890,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -881,9 +937,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -923,9 +981,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -965,9 +1025,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -1010,9 +1072,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
+
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -1055,9 +1120,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
-                            <div class="col-lg-1-5 col-md-4 col-12 col-sm-6 d-none d-xl-block">
+
+
+
+                            {{-- <div class="col-lg-1-5 col-md-4 col-12 col-sm-6 d-none d-xl-block">
                                 <div class="product-cart-wrap">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
@@ -1097,12 +1165,16 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--end product card-->
+
+                            
                         </div>
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab two-->
+
+
                     <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
                         <div class="row product-grid-4">
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -1547,6 +1619,8 @@
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab three-->
+
+
                     <div class="tab-pane fade" id="tab-four" role="tabpanel" aria-labelledby="tab-four">
                         <div class="row product-grid-4">
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -1991,6 +2065,8 @@
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab four-->
+
+
                     <div class="tab-pane fade" id="tab-five" role="tabpanel" aria-labelledby="tab-five">
                         <div class="row product-grid-4">
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -2435,6 +2511,8 @@
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab five-->
+
+
                     <div class="tab-pane fade" id="tab-six" role="tabpanel" aria-labelledby="tab-six">
                         <div class="row product-grid-4">
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -2879,6 +2957,8 @@
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab six-->
+
+
                     <div class="tab-pane fade" id="tab-seven" role="tabpanel" aria-labelledby="tab-seven">
                         <div class="row product-grid-4">
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
@@ -3323,21 +3403,32 @@
                         <!--End product-grid-4-->
                     </div>
                     <!--En tab seven-->
+
+
                 </div>
                 <!--End tab-content-->
+
+
+
+
             </div>
         </section>
         <!--Products Tabs-->
 
 
-        {{-- Featured Products --}}
+
+
+
+        {{--------------------------- Featured Products -----------------------------}}
         <section class="section-padding pb-5">
             <div class="container">
+                {{-- label --}}
                 <div class="section-title wow animate__animated animate__fadeIn">
-                    <h3 class=""> Featured Products </h3>
-                     
+                    <h3 class=""> Featured Products </h3>                     
                 </div>
+
                 <div class="row">
+                    {{-- lmage --}}
                     <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                         <div class="banner-img style-2">
                             <div class="banner-text">
@@ -3346,12 +3437,16 @@
                             </div>
                         </div>
                     </div>
+
+                    {{-- prpduct slider --}}
                     <div class="col-lg-9 col-md-12 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                         <div class="tab-content" id="myTabContent-1">
                             <div class="tab-pane fade show active" id="tab-one-1" role="tabpanel" aria-labelledby="tab-one-1">
                                 <div class="carausel-4-columns-cover arrow-center position-relative">
                                     <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows"></div>
                                     <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
+                                        
+                                        {{-- card 1 --}}
                                         <div class="product-cart-wrap">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
@@ -3392,7 +3487,7 @@
                                         </div>
                                         <!--End product Wrap-->
 
-
+                                        {{-- card 2  --}}
                                         <div class="product-cart-wrap">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
@@ -3432,6 +3527,10 @@
                                             </div>
                                         </div>
                                         <!--End product Wrap-->
+
+
+
+                                        {{-- card 3 --}}
                                         <div class="product-cart-wrap">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
@@ -3471,6 +3570,9 @@
                                             </div>
                                         </div>
                                         <!--End product Wrap-->
+
+
+                                        {{-- card 4  --}}
                                         <div class="product-cart-wrap">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
@@ -3510,6 +3612,9 @@
                                             </div>
                                         </div>
                                         <!--End product Wrap-->
+
+
+                                        {{-- card 5 --}}
                                         <div class="product-cart-wrap">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
@@ -3549,6 +3654,8 @@
                                             </div>
                                         </div>
                                         <!--End product Wrap-->
+
+
                                     </div>
                                 </div>
                             </div>
@@ -3558,6 +3665,7 @@
                         </div>
                         <!--End tab-content-->
                     </div>
+
                     <!--End Col-lg-9-->
                 </div>
             </div>
@@ -3589,21 +3697,24 @@
 
 
 
-        <!-- TV Category -->
-
+       
+        {{--------------------------- TV Category -----------------------------}}
     <section class="product-tabs section-padding position-relative">
             <div class="container">
+                {{-- label --}}
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
                     <h3>TV Category </h3>
                    
                 </div>
                 <!--End nav-tabs-->
+
+
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
 
 
-
+                            {{-- card 1 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
@@ -3651,7 +3762,7 @@
                             <!--end product card-->
 
 
-
+                            {{-- card 2 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".2s">
                                     <div class="product-img-action-wrap">
@@ -3697,6 +3808,8 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+                            {{-- card 3 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                                     <div class="product-img-action-wrap">
@@ -3742,6 +3855,8 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+                            {{-- card 4 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                                     <div class="product-img-action-wrap">
@@ -3785,7 +3900,7 @@
                             </div>
                             <!--end product card-->
 
-
+                            {{-- card 5 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".5s">
                                     <div class="product-img-action-wrap">
@@ -3849,21 +3964,30 @@
 
 
 
-        <!-- Tshirt Category -->
 
+
+
+
+        
+ {{--------------------------- Tshirt Category -----------------------------}}
     <section class="product-tabs section-padding position-relative">
             <div class="container">
+
+                {{-- label --}}
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
                     <h3>Tshirt Category </h3>
                    
                 </div>
                 <!--End nav-tabs-->
+
+
+
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
 
 
-
+                            {{-- card 1 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
@@ -3911,7 +4035,7 @@
                             <!--end product card-->
 
 
-
+                            {{-- card 2 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".2s">
                                     <div class="product-img-action-wrap">
@@ -3957,6 +4081,10 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+
+
+                            {{-- card 3 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                                     <div class="product-img-action-wrap">
@@ -4002,6 +4130,9 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+
+                            {{-- card 4 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                                     <div class="product-img-action-wrap">
@@ -4045,7 +4176,7 @@
                             </div>
                             <!--end product card-->
 
-
+                            {{-- card 5 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".5s">
                                     <div class="product-img-action-wrap">
@@ -4112,21 +4243,31 @@
 
 
 
+
+
+
+
+
         <!-- Computer Category -->
 
     <section class="product-tabs section-padding position-relative">
             <div class="container">
+
+                {{-- label --}}
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
                     <h3>Computer Category </h3>
                    
                 </div>
                 <!--End nav-tabs-->
+
+
+
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
 
 
-
+                            {{-- card 1 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
@@ -4175,6 +4316,7 @@
 
 
 
+                            {{-- card 2 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".2s">
                                     <div class="product-img-action-wrap">
@@ -4220,6 +4362,9 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+
+                            {{-- card 3 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
                                     <div class="product-img-action-wrap">
@@ -4265,6 +4410,9 @@
                                 </div>
                             </div>
                             <!--end product card-->
+
+
+                            {{-- card 4 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".4s">
                                     <div class="product-img-action-wrap">
@@ -4309,6 +4457,7 @@
                             <!--end product card-->
 
 
+                            {{-- card 5 --}}
                             <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".5s">
                                     <div class="product-img-action-wrap">
