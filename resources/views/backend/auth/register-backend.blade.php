@@ -44,7 +44,7 @@
 
 										{{-- form --}}
 										<div class="form-body">
-											<form method="POST" action="{{ route('admin.register') }}" class="row g-3">
+											<form method="POST" action="{{ route('admin.register.store') }}" class="row g-3">
 												@csrf
 
 												<!-- Name -->

@@ -45,7 +45,7 @@
 
 									<div class="form-body">
 										{{-- form  --}}
-											<form method="POST" action="{{ route('login.admin') }}" class="row g-3">
+											<form method="POST" action="{{ route('login') }}" class="row g-3">
                                   		      @csrf
 					
 												

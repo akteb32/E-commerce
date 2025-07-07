@@ -238,37 +238,44 @@
                              @auth
                                  {{-- Account --}}
                                  <div class="header-action-icon-2">
-                                     <a href="page-account.html">
+                                     <a href="#">
                                          <img class="svgInject" alt="Nest"
                                              src="{{ asset('frontend/assets/imgs/theme/icons/icon-user.svg') }}" />
                                      </a>
-                                     <a href="page-account.html"><span class="lable ml-0">Account</span></a>
+                                     <a href="#"><span class="lable ml-0">Account</span></a>
                                      <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                          <ul>
                                              <li>
-                                                 <a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My
+                                                 <a href="#"><i class="fi fi-rs-user mr-10"></i>My
                                                      Account</a>
                                              </li>
                                              <li>
                                                  <a href="page-account.html"><i
-                                                         class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
+                                                         class="#"></i>Order Tracking</a>
                                              </li>
                                              <li>
-                                                 <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My
+                                                 <a href="#"><i class="fi fi-rs-label mr-10"></i>My
                                                      Voucher</a>
                                              </li>
                                              <li>
-                                                 <a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My
+                                                 <a href="#"><i class="fi fi-rs-heart mr-10"></i>My
                                                      Wishlist</a>
                                              </li>
                                              <li>
-                                                 <a href="page-account.html"><i
+                                                 <a href="#"><i
                                                          class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
                                              </li>
                                              <li>
-                                                 <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign
-                                                     out</a>
+                                                 <form method="POST" action="{{ route('logout') }}">
+                                                     @csrf
+                                                     <button type="submit"
+                                                         style="background: none; border: none; padding: 0; color: inherit;">
+                                                         <i class="fi fi-rs-sign-out mr-10"></i> Sign out
+                                                     </button>
+                                                 </form>
                                              </li>
+
+                                             
                                          </ul>
                                      </div>
                                  </div>

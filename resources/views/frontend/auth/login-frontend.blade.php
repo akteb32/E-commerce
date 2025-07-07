@@ -39,7 +39,7 @@
                                     </div>
 
 
-                                    <form method="POST" action="{{ route('login.user') }}">
+                                    <form method="POST" action="{{ route('login') }}">
                                         @csrf
 
 
