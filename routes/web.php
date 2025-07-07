@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\ShippingController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserRoleController;
+use App\Http\Controllers\frontend\AddressController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\FrontCategoryController;
@@ -33,7 +34,9 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 // -- -------------------------------------- Home Page ----------------------------------- -- //
-Route::get('/', function () {return view('frontend/home');})->name('home');
+Route::get('/', function () {
+    return view('frontend/home');
+})->name('home');
 
 
 
@@ -167,9 +170,10 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
         Route::post('/single_product', [SingleProductController::class, 'show'])->name('single_product.show');
     });
 
-
-
-
+    // -- address Route -- //
+    Route::prefix('address')->group(function () {
+        Route::get('/user_address', [AddressController::class, 'index'])->name('user.address');
+    });
 });
 
 

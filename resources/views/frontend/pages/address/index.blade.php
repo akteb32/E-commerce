@@ -1,8 +1,6 @@
 @extends('frontend.layouts.frontmaster')
 
 @section('main')
-
-
     {{-- address --}}
     <div class="page-content pt-150 pb-150">
         <div class="container">
@@ -16,8 +14,8 @@
 
                                     {{-- My Address --}}
                                     <li class="nav-item">
-                                        <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab"
-                                            aria-controls="address" aria-selected="true"><i
+                                        <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address"
+                                            role="tab" aria-controls="address" aria-selected="true"><i
                                                 class="fi-rs-marker mr-10"></i>My Address</a>
                                     </li>
 
@@ -46,44 +44,59 @@
                                                         Sault Ste. <br />Marie, MI 49783
                                                     </address>
                                                     <p>New York</p>
-                                                    <a href="{{route('login')}}" class="btn-small">Edit</a>
+                                                    <a href="{{ route('login') }}" class="btn-small">Edit</a>
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
-                                        {{-- Shipping Address --}}
-                                        <div class="col-lg-6">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h5 class="mb-0">Shipping Address</h5>
-                                                </div>
-                                                <div class="card-body">
-                                                    <address>
-                                                        4299 Express Lane<br />
-                                                        Sarasota, <br />FL 34249 USA <br />Phone: 1.941.227.4444
-                                                    </address>
-                                                    <p>Sarasota</p>
-                                                    <a href="{{route('login')}}" class="btn-small">Edit</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
 
 
 
 
                                         
+                                        {{-- Shipping Address --}}
+                                        <address>
+                                            {{ $shippingAddress->address ?? 'No shipping address found' }}
+                                            <br />
+                                            Phone: {{ $shippingAddress->phone ?? '' }}
+                                            <br />
+                                            first_name: {{ $shippingAddress->first_name ?? '' }}
+                                            <br />
+                                            last_name: {{ $shippingAddress->last_name ?? '' }}
+                                            <br />
+                                            company: {{ $shippingAddress->company ?? '' }}
+                                            <br />
+                                            address_line_1: {{ $shippingAddress->address_line_1 ?? '' }}
+                                            <br />
+                                            address_line_2: {{ $shippingAddress->address_line_2 ?? '' }}
+                                            <br />
+                                            city: {{ $shippingAddress->city ?? '' }}
+                                            <br />
+                                            state: {{ $shippingAddress->state ?? '' }}
+                                            <br />
+                                            postal_code: {{ $shippingAddress->postal_code ?? '' }}
+                                            <br />
+                                            country: {{ $shippingAddress->country ?? '' }}
+                                            <br />
+                                            order_id: {{ $shippingAddress->order_id}}
+                                            <br />
+
+                                        </address>
+                                        
+                                        <a href="#" class="btn-small">Edit</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -93,6 +106,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection
