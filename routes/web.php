@@ -29,14 +29,9 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
+// -- -------------------------------------- Home Page ----------------------------------- -- //
+Route::get('/', function () {return view('frontend/home');})->name('home');
 
-Route::get('/', function () {
-    return view('frontend/home');
-})->name('home');
-
-// Route::get('/dashboard', function () {
-//     return view('backend/dashboard-backend');
-// })->name('dashbord.admin')->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -139,6 +134,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
 
 
+
+
 // -- -------------------------------------- frontend Route ----------------------------------- -- //
 Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -147,10 +144,14 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
 
     // -- Cart Route -- //
     Route::prefix('cart')->group(function () {
-        Route::get('/cart', [CartController::class, 'addToCart'])->name('cart.add');
+        Route::get('/show_cart', [CartController::class, 'index'])->name('cart.index');
+        Route::get('/add_to_cart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+        Route::get('/remove_cart', [CartController::class, 'remove'])->name('cart.remove');
     });
-    
+        
 });
+
+
 
 
 

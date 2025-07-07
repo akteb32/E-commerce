@@ -11,6 +11,16 @@ class CartController extends Controller
 {
 
 
+
+    public function index()
+    {
+        $cart = session()->get('cart', []);
+        return view('frontend.pages.cart.index', compact('cart'));
+    }
+
+
+
+
     public function addToCart($id)
     {
 
@@ -33,12 +43,29 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
+        // back to home page
         return back();
     }
 
 
 
 
-    
+
+    public function remove(Request $request)
+    {
+        $cart = session()->get('cart');
+        if (isset($cart[$request->id])) {
+            unset($cart[$request->id]);
+            session()->put('cart', $cart);
+        }
+
+        // back to home page
+        return redirect()->back();
+    }
+
+
+
+
+
     
 }
