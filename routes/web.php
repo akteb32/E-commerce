@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserRoleController;
 use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\FrontCategoryController;
 use App\Http\Controllers\frontend\FrontProductController;
 use App\Http\Controllers\frontend\FrontSubcategoryController;
@@ -147,7 +148,13 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
         Route::get('/show_cart', [CartController::class, 'index'])->name('cart.index');
         Route::get('/add_to_cart/{id}', [CartController::class, 'addToCart'])->name('cart.addToCart');
         Route::get('/remove_cart', [CartController::class, 'remove'])->name('cart.remove');
+
+        Route::post('/checkout_cart', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+
     });
+
+
+    
 
 });
 
