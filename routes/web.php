@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\UserRoleController;
 use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\FrontCategoryController;
+use App\Http\Controllers\frontend\FrontOrderController;
 use App\Http\Controllers\frontend\FrontProductController;
 use App\Http\Controllers\frontend\FrontSubcategoryController;
 use App\Http\Controllers\ProfileController;
@@ -148,13 +149,20 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
         Route::get('/show_cart', [CartController::class, 'index'])->name('cart.index');
         Route::get('/add_to_cart/{id}', [CartController::class, 'addToCart'])->name('cart.addToCart');
         Route::get('/remove_cart', [CartController::class, 'remove'])->name('cart.remove');
+    });
 
+    // -- checkout Route -- //
+    Route::prefix('checkout')->group(function () {
         Route::post('/checkout_cart', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+    });
 
+    // -- order Route -- //
+    Route::prefix('order')->group(function () {
+        Route::post('/order_index', [FrontOrderController::class, 'index'])->name('order.index');
     });
 
 
-    
+
 
 });
 

@@ -2,8 +2,6 @@
 
 @section('main')
 
-
-
 <div class="page-content pt-150 pb-150">
     <div class="container">
         <div class="row">
@@ -14,11 +12,13 @@
                     </div>
                     <div class="card-body">
                         @if ($orders->isEmpty())
-                            <p>You have no orders yet.</p>
+                            <div class="alert alert-info text-center">
+                                You have no orders yet.
+                            </div>
                         @else
                             <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
+                                <table class="table table-bordered table-striped">
+                                    <thead class="bg-light">
                                         <tr>
                                             <th>Order #</th>
                                             <th>Date</th>
@@ -32,8 +32,18 @@
                                         @foreach ($orders as $order)
                                             <tr>
                                                 <td>#{{ $order->id }}</td>
-                                                <td>{{ $order->created_at->format('d M, Y') }}</td>
-                                                <td>{{ ucfirst($order->status) }}</td>
+                                                <td>{{ $order->created_at?->format('d M, Y') }}</td>
+                                                <td>
+                                                    <span class="badge 
+                                                        @if($order->status == 'pending') bg-warning
+                                                        @elseif($order->status == 'shipped') bg-info
+                                                        @elseif($order->status == 'delivered') bg-success
+                                                        @elseif($order->status == 'cancelled') bg-danger
+                                                        @else bg-secondary
+                                                        @endif">
+                                                        {{ ucfirst($order->status) }}
+                                                    </span>
+                                                </td>
                                                 <td>${{ number_format($order->total, 2) }}</td>
                                                 <td>{{ ucfirst($order->payment_method) }}</td>
                                                 <td>
@@ -51,9 +61,5 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 @endsection
