@@ -13,63 +13,62 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
-    public function create(): View
-    {
-         if (Auth::check() && Auth::user()->hasRole('user'))
-          {
-            return view('frontend.auth.login-frontend');
-          } 
-        else
-          {
-            return view('backend.auth.login-backend');
-          }
-        
-    }
+  /**
+   * Display the login view.
+   */
+  public function create(): View
+  {
+    return view('frontend.auth.login-frontend');
+  }
+
+
+  /**
+   * Handle an incoming authentication request.
+   */
+  public function store(LoginRequest $request): RedirectResponse
+  {
+    $request->authenticate();
+
+    $request->session()->regenerate();
 
     /**
-     * Handle an incoming authentication request.
+     * @var \App\Models\User $user
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+    $user = Auth::user();
 
-        $request->session()->regenerate();
-
-        /**
-         * @var \App\Models\User $user
-         */
-        $user = Auth::user();
-
-        if ($user->hasRole('user')) {
-            return redirect()->route('/');
-        }else{
-             return redirect()->route('dashboard');
-        }
-         if ($user->hasRole('admin')) {
-            return redirect()->route('dashboard');
-        }else{
-            return redirect()->route('/');
-        }
-        
-
-
-
+    if ($user->hasRole('admin')) {
+      return redirect()->route('dashbord.admin'); 
+    } else {
+      return redirect()->route('/');
     }
+  }
 
-    /**
-     * Destroy an authenticated session.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
 
-        $request->session()->invalidate();
+  public function showUserLoginForm(): View
+  {
+    return view('frontend.auth.login-frontend');
+  }
 
-        $request->session()->regenerateToken();
+  public function showAdminLoginForm(): View
+  {
+    return view('backend.auth.login-backend');
+  }
 
-        return redirect('/');
-    }
+
+
+
+
+  /**
+   * Destroy an authenticated session.
+   */
+  public function destroy(Request $request): RedirectResponse
+  {
+    Auth::guard('web')->logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+  }
 }

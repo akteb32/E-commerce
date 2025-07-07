@@ -1,8 +1,6 @@
 ﻿@extends('frontend.layouts.frontmaster')
 
 @section('main')
-
-
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
@@ -19,7 +17,8 @@
 
                         {{-- div 1  --}}
                         <div class="col-lg-6 pr-30 d-none d-lg-block">
-                            <img class="border-radius-15" src="{{asset('frontend/assets/imgs/page/login-1.png')}}" alt="" />
+                            <img class="border-radius-15" src="{{ asset('frontend/assets/imgs/page/login-1.png') }}"
+                                alt="" />
                         </div>
 
                         {{-- div 2 --}}
@@ -28,28 +27,32 @@
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Login</h1>
+                                        <p>Don't have an account yet? <a
+                                                href="{{ route('user.register') }}">register here</a>
+                                        </p>
 
-                                        {{-- error error error error error --}}
-                                        {{-- <p class="mb-30">Don't have an account? <a
+                                            {{-- error error error error error --}}
+                                            {{-- <p class="mb-30">Don't have an account? <a
                                                 href="{{ route('password.request') }}">Create here</a>
                                         </p> --}}
 
                                     </div>
 
 
-                                    <form method="POST" action="{{ route('login') }}">
+                                    <form method="POST" action="{{ route('login.user') }}">
                                         @csrf
 
 
                                         <!-- Email Address -->
                                         <div class="form-group">
-                                            <input type="email" id="email" name="email" placeholder="Username or Email *"
-                                                required autofocus autocomplete="username" />
+                                            <input type="email" id="email" name="email"
+                                                placeholder="Username or Email *" required autofocus
+                                                autocomplete="username" />
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
                                         </div>
 
-                                       
+
                                         <!-- Password -->
                                         <div class="form-group">
                                             <input id="password" type="password" name="password" required
@@ -70,18 +73,19 @@
                                                 </div>
                                             </div>
                                             @if (Route::has('password.request'))
-                                                <a class="text-muted" href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
+                                                <a class="text-muted"
+                                                    href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
                                             @endif
                                         </div>
 
 
                                         {{-- login button  --}}
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-heading btn-block hover-up"
-                                                    name="login">{{ __('Log in') }}</button>
-                                            </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-heading btn-block hover-up"
+                                                name="login">{{ __('Log in') }}</button>
+                                        </div>
 
-                                     
+
 
                                     </form>
                                 </div>
@@ -92,8 +96,4 @@
             </div>
         </div>
     </div>
-
-
-
-
 @endsection

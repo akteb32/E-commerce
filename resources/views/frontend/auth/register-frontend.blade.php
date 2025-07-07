@@ -28,13 +28,13 @@
                                     {{-- div 1 --}}
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Create an Account</h1>
-                                        <p class="mb-30">Already have an account? <a href="{{ route('login') }}">Login</a>
+                                        <p class="mb-30">Already have an account? <a href="{{ route('login.user') }}">Login</a>
                                         </p>
                                     </div>
 
                                     {{-- div 2 --}}
                                     <div class="form-body">
-                                        <form method="POST" action="{{ route('register') }}">
+                                        <form method="POST" action="{{ route('user.register') }}">
                                             @csrf
 
                                             <!-- Name -->
@@ -140,7 +140,7 @@
 
 
                                             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                                                href="{{ route('login') }}">
+                                                href="{{ route('login.user') }}">
                                                 {{ __('Already registered?') }}
                                             </a>
 

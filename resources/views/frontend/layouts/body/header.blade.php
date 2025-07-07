@@ -125,36 +125,52 @@
 
 
 
-                     @auth
-                         <div class="header-action-right">
-                             <div class="header-action-2">
 
+                     <div class="header-action-right">
+                         <div class="header-action-2">
+                             @guest
+                                 {{-- login.user --}}
+                                 <div class="header-action-icon-2">
 
-
-                                 {{-- div 1  --}}
-                                 <div class="search-location">
-                                     <form action="#">
-                                         <select class="select-active">
-                                             <option>Your Location</option>
-                                             <option>Alabama</option>
-                                             <option>Alaska</option>
-                                             <option>Arizona</option>
-                                             <option>Delaware</option>
-                                             <option>Florida</option>
-                                             <option>Georgia</option>
-                                             <option>Hawaii</option>
-                                             <option>Indiana</option>
-                                             <option>Maryland</option>
-                                             <option>Nevada</option>
-                                             <option>New Jersey</option>
-                                             <option>New Mexico</option>
-                                             <option>New York</option>
-                                         </select>
-                                     </form>
+                                     <a href="{{ route('login.user') }}"><span class="lable">login as user</span></a>
                                  </div>
 
+                             @endguest
+
+                             @guest
+                                 {{-- login.admin --}}
+                                 <div class="header-action-icon-2">
+
+                                     <a href="{{ route('login.admin') }}"><span class="lable">login as admin</span></a>
+                                 </div>
+                             @endguest
 
 
+
+                             {{-- div 1  --}}
+                             <div class="search-location">
+                                 <form action="#">
+                                     <select class="select-active">
+                                         <option>Your Location</option>
+                                         <option>Alabama</option>
+                                         <option>Alaska</option>
+                                         <option>Arizona</option>
+                                         <option>Delaware</option>
+                                         <option>Florida</option>
+                                         <option>Georgia</option>
+                                         <option>Hawaii</option>
+                                         <option>Indiana</option>
+                                         <option>Maryland</option>
+                                         <option>Nevada</option>
+                                         <option>New Jersey</option>
+                                         <option>New Mexico</option>
+                                         <option>New York</option>
+                                     </select>
+                                 </form>
+                             </div>
+
+
+                             @auth
                                  {{-- Wishlist --}}
                                  <div class="header-action-icon-2">
                                      <a href="shop-wishlist.html">
@@ -164,8 +180,9 @@
                                      </a>
                                      <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                                  </div>
+                             @endauth
 
-
+                             @auth
 
                                  {{-- Cart --}}
                                  <div class="header-action-icon-2">
@@ -216,9 +233,9 @@
                                      </div>
                                  </div>
 
+                             @endauth
 
-
-
+                             @auth
                                  {{-- Account --}}
                                  <div class="header-action-icon-2">
                                      <a href="page-account.html">
@@ -255,12 +272,12 @@
                                          </ul>
                                      </div>
                                  </div>
+                             @endauth
 
 
-
-                             </div>
                          </div>
-                     @endauth
+                     </div>
+
 
 
 

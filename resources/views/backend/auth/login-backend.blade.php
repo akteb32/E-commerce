@@ -20,7 +20,7 @@
 									{{-- Don't have an account yet? --}}
 									<div class="text-center">
 										<h3 class="">login</h3>
-										<p>Don't have an account yet? <a href="authentication-signup-with-header-footer.html">register here</a>
+										<p>Don't have an account yet? <a href="{{ route('admin.register') }}">register here</a>
 										</p>
 									</div>
 
@@ -45,7 +45,7 @@
 
 									<div class="form-body">
 										{{-- form  --}}
-											<form method="POST" action="{{ route('login') }}" class="row g-3">
+											<form method="POST" action="{{ route('login.admin') }}" class="row g-3">
                                   		      @csrf
 					
 												

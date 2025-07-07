@@ -14,11 +14,11 @@
 							</li>
 							
 							
-							<li class="nav-item"> <a class="nav-link" href="#">login</a>
+							<li class="nav-item"> <a class="nav-link" href="{{ route('login.admin') }}">login</a>
 							</li>
 
 
-							<li class="nav-item"> <a class="nav-link" href="#">register</a>
+							<li class="nav-item"> <a class="nav-link" href="{{ route('admin.register') }}">register</a>
 							</li>
 						</ul>
 					</div>
