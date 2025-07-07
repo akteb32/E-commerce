@@ -145,10 +145,10 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
     // -- Cart Route -- //
     Route::prefix('cart')->group(function () {
         Route::get('/show_cart', [CartController::class, 'index'])->name('cart.index');
-        Route::get('/add_to_cart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+        Route::get('/add_to_cart/{id}', [CartController::class, 'addToCart'])->name('cart.addToCart');
         Route::get('/remove_cart', [CartController::class, 'remove'])->name('cart.remove');
     });
-        
+
 });
 
 
