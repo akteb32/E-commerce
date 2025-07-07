@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\ShippingController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserRoleController;
+use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\FrontCategoryController;
 use App\Http\Controllers\frontend\FrontProductController;
 use App\Http\Controllers\frontend\FrontSubcategoryController;
@@ -146,21 +147,12 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
 
     // -- Cart Route -- //
     Route::prefix('cart')->group(function () {
-        // Route::get('/cart', [Controller::class, 'index'])->name('cart.index');
+        Route::get('/cart', [CartController::class, 'addToCart'])->name('cart.add');
     });
-    // -- product Route -- //
-    Route::prefix('product')->group(function () {
-        // Route::get('/product', [Controller::class, 'index'])->name('product.index');
-    });
-    // -- order Route -- //
-    Route::prefix('order')->group(function () {
-        // Route::get('/order', [Controller::class, 'index'])->name('order.index');
-    });
-    // -- address Route -- //
-    Route::prefix('address')->group(function () {
-        // Route::get('/address', [Controller::class, 'index'])->name('address.index');
-    });
+    
 });
+
+
 
 
 
