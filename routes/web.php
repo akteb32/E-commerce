@@ -14,6 +14,7 @@ use App\Http\Controllers\frontend\FrontCategoryController;
 use App\Http\Controllers\frontend\FrontOrderController;
 use App\Http\Controllers\frontend\FrontProductController;
 use App\Http\Controllers\frontend\FrontSubcategoryController;
+use App\Http\Controllers\frontend\SingleProductController;
 use App\Http\Controllers\ProfileController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
@@ -159,6 +160,11 @@ Route::prefix('user')->middleware(['auth', 'role:user'])->group(function () {
     // -- order Route -- //
     Route::prefix('order')->group(function () {
         Route::post('/order_index', [FrontOrderController::class, 'index'])->name('order.index');
+    });
+
+    // -- product Route -- //
+    Route::prefix('product')->group(function () {
+        Route::post('/single_product', [SingleProductController::class, 'show'])->name('single_product.show');
     });
 
 
